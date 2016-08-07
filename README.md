@@ -58,4 +58,4 @@ Die Aktualisierungsrate des Viewers wird in _js/viewer.js/_ eingestellt und zwar
 Default Hintergrund
 
 ## Lizenz
-Dieses Projekt steht unter MIT Lizent. Siehe LICENSE.md
+Dieses Projekt steht unter MIT Lizenz. Siehe LICENSE.md
