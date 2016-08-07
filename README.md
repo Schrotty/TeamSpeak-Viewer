@@ -14,7 +14,7 @@ Eine Weboberfläche für einen TeamSpeak 3, um sich alle verbundenden Clients an
 ## Features
 * Responsive dank Bootstrap
 * Auflistung aller verbundenden Clients mitsamt des aktuellen Channels.
-* Automatische Aktualisierung, ohne dies gesamte Seite neuladen zu müssen.
+* Automatische Aktualisierung.
   * Die Aktualisierungsrate ist frei wählbar. (Siehe Einstellungen)
 
 ## Geplante Features
@@ -22,7 +22,7 @@ Eine Weboberfläche für einen TeamSpeak 3, um sich alle verbundenden Clients an
 * Desktopbenachrichtigungen.
 * Ein Adminpanel.
 
-Wie genau die einzelnen Features umgesetzt werden sollen steht noch nicht genau fest. Einen Entwurf der Galerie kann unter Bilder betrachtet werden.
+Wie genau die einzelnen Features umgesetzt werden sollen steht noch nicht genau fest. Ein Entwurf der Galerie kann unter Bilder betrachtet werden.
 
 ## Einrichtung
 1. Das Repo. klonen oder als .zip herunterladen und auf einen Webserverr hochladen. Der Name des Ordners ist dabei nicht wichtig. Ein Beispiel könnte sein: _http://www.ihre-domain.de/tsview/_
@@ -55,10 +55,13 @@ Die Aktualisierungsrate des Viewers wird in _js/viewer.js/_ eingestellt und zwar
 
 ## Bilder
 ![Default Image](http://i.imgur.com/xt0pPrT.jpg)
-Default Background
+Default background
 
 ![Custom Image](http://i.imgur.com/cpXM7DW.jpg)
-Custom Background
+Custom background
+
+![Background gallery](http://i.imgur.com/0nTXEAz.jpg)
+Background gallery
 
 ## Lizenz
 Dieses Projekt steht unter MIT Lizenz. Siehe LICENSE.md
