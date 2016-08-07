@@ -54,8 +54,11 @@ Die Aktualisierungsrate des Viewers wird in _js/viewer.js/_ eingestellt und zwar
 </b>
 
 ## Bilder
-![alt-text](https://github.com/Schrotty/TeamSpeak-Viewer/blob/gh-pages/images/OV.jpg)
-Default Hintergrund
+![Default Image](http://i.imgur.com/xt0pPrT.jpg)
+Default Background
+
+![Custom Image](http://i.imgur.com/cpXM7DW.jpg)
+Custom Background
 
 ## Lizenz
 Dieses Projekt steht unter MIT Lizenz. Siehe LICENSE.md
