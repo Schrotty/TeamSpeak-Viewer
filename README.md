@@ -6,6 +6,7 @@
 3. Einrichtung
 4. Einstellungen
 5. Bilder
+6. Lizenz
 
 ## Was ist der TeamSpeak Viewer?
 Eine Weboberfläche für einen TeamSpeak 3, um sich alle verbundenden Clients anzeigen zu lassen.
@@ -53,3 +54,8 @@ Die Aktualisierungsrate des Viewers wird in _js/viewer.js/_ eingestellt und zwar
 </b>
 
 ## Bilder
+![alt-text](https://github.com/Schrotty/TeamSpeak-Viewer/blob/gh-pages/images/OV.jpg)
+Default Hintergrund
+
+## Lizenz
+Dieses Projekt steht unter MIT Lizent. Siehe LICENSE.md
