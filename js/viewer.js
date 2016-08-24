@@ -11,14 +11,14 @@ $( document ).ready(function() {
     });
 
     function loadViewerData(){
-        $.ajax({
+        $.getJSON({
             data: "json",
             method: "POST",
             url: "lib/Viewer.php"
         }).done(function( data ){
-            var obj = jQuery.parseJSON(data);
+            //var obj = jQuery.parseJSON(data);
 
-            $.each(obj, function(index, value) {
+            $.each(data, function(index, value) {
                 if(index == "user"){
                     $( "#viewer-body" ).find("tr").remove();
                     $( "#viewer-body" ).append(value);
