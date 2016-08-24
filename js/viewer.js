@@ -1,10 +1,10 @@
 $( document ).ready(function() {
-    var refreshRateinSeconds = 20;
+    var refreshRateInSeconds = 20;
 
     loadViewerData()
     window.setInterval(function(){
         loadViewerData();
-    }, refreshRateinSeconds * 1000);
+    }, refreshRateInSeconds * 1000);
 
     $( '#refresh-icon' ).click(function(){
         loadViewerData();
