@@ -37,8 +37,11 @@ Wie genau die einzelnen Features umgesetzt werden sollen steht noch nicht genau 
 
 ## Einstellungen
 Die meisten Einstellungen liegen in der _config/Config.php_. Dort wird neben den Query & Server Einstellungen auch die Sprache des Viewers eingestellt.
+
 Die Sprachdateien befinden sich unter _lang/[sprachkürzel]/_.
+
 Die Aktualisierungsrate des Viewers wird in _js/viewer.js/_ eingestellt und zwar mit der Variable _refreshRateinSeconds_.
+
 Die Hintergrundbilder liegen im Ordner _img/baackgrounds/_.
 Empfohlen sind Bilder mit einer Auflösung von 1920x1080 Pixeln, wobei auch alle anderen Auflösungen akzeptiert werden.
 
