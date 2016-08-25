@@ -1,12 +1,15 @@
 html {
     width: 100%;
     height: 100%;
+    background: url('../img/backgrounds/default.jpeg');
+    background-size: 100%;
+    background-position-y: sticky;
 }
 
 body {
     font-family: 'Roboto';
     font-size: 16px;
-    background: url('../img/backgrounds/default.jpeg');
+    background: none;
 }
 
 /* ### Custom Panel CSS ### */
@@ -61,7 +64,7 @@ body {
     padding: 15px;
 }
 
-#application-title {
+#application-title, #settings-title {
     float: left; 
 }
 
@@ -75,4 +78,75 @@ body {
 
 #alert-panel {
     display: none;
+}
+
+#settings-icon {
+    float: left;
+    margin-right: 15px;
+}
+
+#settings-panel {
+    display: none;
+}
+
+#close-icon {
+    float: right;
+}
+
+.col-md-6 {
+    padding: 8px;
+}
+
+#last {
+    padding: 0px;
+}
+
+#last button {
+    width: 100%;
+    padding-right: 0px;
+}
+
+#success-alert {
+    margin-top: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.thumbnail {
+    padding: 0px;
+    overflow: hidden;
+    position: relative;
+}
+
+.thumbnail img {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.thumbnail:hover .image-text {
+  display: block;
+}
+
+.image-text {
+    bottom: 140px;
+    color: white;
+    height: 100%;
+    line-height: 140px;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-bottom: -140px;
+    display: none;
+    cursor: pointer;
+}
+
+.image-text div {
+    position: absolute;
+    line-height: 100%;
 }

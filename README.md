@@ -5,8 +5,9 @@
 3. Geplante Features
 3. Einrichtung
 4. Einstellungen
-5. Bilder
-6. Lizenz
+5. Hintergrundgalerie
+6. Bilder
+7. Lizenz
 
 ## Was ist der TeamSpeak Viewer?
 Eine Weboberfläche für einen TeamSpeak 3, um sich alle verbundenden Clients anzeigen zu lassen.
@@ -14,15 +15,16 @@ Eine Weboberfläche für einen TeamSpeak 3, um sich alle verbundenden Clients an
 ## Features
 * Responsive dank Bootstrap
 * Auflistung aller verbundenden Clients mitsamt des aktuellen Channels.
+* Hintergrundgalerie
 * Automatische Aktualisierung.
   * Die Aktualisierungsrate ist frei wählbar. (Siehe Einstellungen)
 
 ## Geplante Features
-* Eine Galerie für Hintergrundbilder.
 * Desktopbenachrichtigungen.
+* Sounds
 * Ein Adminpanel.
 
-Wie genau die einzelnen Features umgesetzt werden sollen steht noch nicht genau fest. Ein Entwurf der Galerie kann unter Bilder betrachtet werden.
+Wie genau die einzelnen Features umgesetzt werden sollen steht noch nicht genau fest.
 
 ## Einrichtung
 1. Das Repo. klonen oder als .zip herunterladen und auf einen Webserverr hochladen. Der Name des Ordners ist dabei nicht wichtig. Ein Beispiel könnte sein: _http://www.ihre-domain.de/tsview/_
@@ -35,8 +37,13 @@ Wie genau die einzelnen Features umgesetzt werden sollen steht noch nicht genau 
 
 ## Einstellungen
 Die meisten Einstellungen liegen in der _config/Config.php_. Dort wird neben den Query & Server Einstellungen auch die Sprache des Viewers eingestellt.
+
 Die Sprachdateien befinden sich unter _lang/[sprachkürzel]/_.
+
 Die Aktualisierungsrate des Viewers wird in _js/viewer.js/_ eingestellt und zwar mit der Variable _refreshRateinSeconds_.
+
+Die Hintergrundbilder liegen im Ordner _img/baackgrounds/_.
+Empfohlen sind Bilder mit einer Auflösung von 1920x1080 Pixeln, wobei auch alle anderen Auflösungen akzeptiert werden.
 
 <b>
 
@@ -53,6 +60,10 @@ Die Aktualisierungsrate des Viewers wird in _js/viewer.js/_ eingestellt und zwar
         public static $sLanguage = "de";  //Sprache des Viewers
 </b>
 
+## Hintergrundgalerie
+In der Hintergrundgalerie kann jeder Benutzer einen eigenen Hintergrund für sich festlegen.
+Aufgerufen wird die Galerie über die Einstellungen, welche mit dem Icon links oben erreichbar sind.
+
 ## Bilder
 ![Default Image](http://i.imgur.com/xt0pPrT.jpg)
 Default background
@@ -60,7 +71,7 @@ Default background
 ![Custom Image](http://i.imgur.com/cpXM7DW.jpg)
 Custom background
 
-![Background gallery](http://i.imgur.com/0nTXEAz.jpg)
+![Background gallery](http://i.imgur.com/NLSjrW6.jpg)
 Background gallery
 
 ## Lizenz
