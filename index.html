@@ -1,34 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <title>Teamspeak-viewer by Schrotty</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <title>Teamspeak-viewer by Schrotty</title>
   </head>
-
   <body>
-    <header>
-      <div class="inner">
-        <h1>Teamspeak-viewer</h1>
-        <h2></h2>
-        <a href="https://github.com/Schrotty/TeamSpeak-Viewer" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
+    <section class="page-header">
+      <h1 class="project-name">Teamspeak-viewer</h1>
+      <h2 class="project-tagline">Simple TeamSpeak Viewer</h2>
+      <a href="https://github.com/Schrotty/TeamSpeak-Viewer" class="btn">View on GitHub</a>
+      <a href="https://github.com/Schrotty/TeamSpeak-Viewer/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Schrotty/TeamSpeak-Viewer/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
+    <section class="main-content">
+      <h1>
 <a id="teamspeak-viewer" class="anchor" href="#teamspeak-viewer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TeamSpeak-Viewer</h1>
 
 <ol>
@@ -37,6 +28,7 @@
 <li>Geplante Features</li>
 <li>Einrichtung</li>
 <li>Einstellungen</li>
+<li>Hintergrundgalerie</li>
 <li>Bilder</li>
 <li>Lizenz</li>
 </ol>
@@ -52,6 +44,7 @@
 <ul>
 <li>Responsive dank Bootstrap</li>
 <li>Auflistung aller verbundenden Clients mitsamt des aktuellen Channels.</li>
+<li>Hintergrundgalerie</li>
 <li>Automatische Aktualisierung.
 
 <ul>
@@ -64,12 +57,12 @@
 <a id="geplante-features" class="anchor" href="#geplante-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Geplante Features</h2>
 
 <ul>
-<li>Eine Galerie für Hintergrundbilder.</li>
 <li>Desktopbenachrichtigungen.</li>
+<li>Sounds</li>
 <li>Ein Adminpanel.</li>
 </ul>
 
-<p>Wie genau die einzelnen Features umgesetzt werden sollen steht noch nicht genau fest. Ein Entwurf der Galerie kann unter Bilder betrachtet werden.</p>
+<p>Wie genau die einzelnen Features umgesetzt werden sollen steht noch nicht genau fest.</p>
 
 <h2>
 <a id="einrichtung" class="anchor" href="#einrichtung" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Einrichtung</h2>
@@ -92,9 +85,14 @@
 <h2>
 <a id="einstellungen" class="anchor" href="#einstellungen" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Einstellungen</h2>
 
-<p>Die meisten Einstellungen liegen in der <em>config/Config.php</em>. Dort wird neben den Query &amp; Server Einstellungen auch die Sprache des Viewers eingestellt.
-Die Sprachdateien befinden sich unter <em>lang/[sprachkürzel]/</em>.
-Die Aktualisierungsrate des Viewers wird in <em>js/viewer.js/</em> eingestellt und zwar mit der Variable <em>refreshRateinSeconds</em>.</p>
+<p>Die meisten Einstellungen liegen in der <em>config/Config.php</em>. Dort wird neben den Query &amp; Server Einstellungen auch die Sprache des Viewers eingestellt.</p>
+
+<p>Die Sprachdateien befinden sich unter <em>lang/[sprachkürzel]/</em>.</p>
+
+<p>Die Aktualisierungsrate des Viewers wird in <em>js/viewer.js/</em> eingestellt und zwar mit der Variable <em>refreshRateinSeconds</em>.</p>
+
+<p>Die Hintergrundbilder liegen im Ordner <em>img/baackgrounds/</em>.
+Empfohlen sind Bilder mit einer Auflösung von 1920x1080 Pixeln, wobei auch alle anderen Auflösungen akzeptiert werden.</p>
 
 <p><b></b></p>
 
@@ -114,6 +112,12 @@ Die Aktualisierungsrate des Viewers wird in <em>js/viewer.js/</em> eingestellt u
 <p></p>
 
 <h2>
+<a id="hintergrundgalerie" class="anchor" href="#hintergrundgalerie" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hintergrundgalerie</h2>
+
+<p>In der Hintergrundgalerie kann jeder Benutzer einen eigenen Hintergrund für sich festlegen.
+Aufgerufen wird die Galerie über die Einstellungen, welche mit dem Icon links oben erreichbar sind.</p>
+
+<h2>
 <a id="bilder" class="anchor" href="#bilder" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bilder</h2>
 
 <p><img src="http://i.imgur.com/xt0pPrT.jpg" alt="Default Image">
@@ -122,31 +126,21 @@ Default background</p>
 <p><img src="http://i.imgur.com/cpXM7DW.jpg" alt="Custom Image">
 Custom background</p>
 
-<p><img src="http://i.imgur.com/0nTXEAz.jpg" alt="Background gallery">
+<p><img src="http://i.imgur.com/NLSjrW6.jpg" alt="Background gallery">
 Background gallery</p>
 
 <h2>
 <a id="lizenz" class="anchor" href="#lizenz" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lizenz</h2>
 
 <p>Dieses Projekt steht unter MIT Lizenz. Siehe LICENSE.md</p>
-        </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/Schrotty/TeamSpeak-Viewer/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/Schrotty/TeamSpeak-Viewer/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Schrotty/TeamSpeak-Viewer">Teamspeak-viewer</a> is maintained by <a href="https://github.com/Schrotty">Schrotty</a>.</span>
 
-          <p class="repo-owner"><a href="https://github.com/Schrotty/TeamSpeak-Viewer"></a> is maintained by <a href="https://github.com/Schrotty">Schrotty</a>.</p>
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
 
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
-    </div>
+    </section>
 
   
   </body>
