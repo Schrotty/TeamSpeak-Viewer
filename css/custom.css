@@ -7,7 +7,6 @@ html {
 }
 
 body {
-    font-family: 'Roboto';
     font-size: 16px;
     background: none;
 }
@@ -25,11 +24,9 @@ body {
 
 .panel .panel-heading {
     height: 48px;
-    background-color: rgb(232, 232, 232);
 }
 
 .panel-heading .panel-title {
-    color: rgba(0, 0, 0, 0.4);
     font-size: 22px;
 }
 
@@ -49,7 +46,6 @@ body {
 .table th {
     font-size: 18px;
     text-align: left;
-    font-family: 'Roboto', sans-serif;
     font-weight: normal;
     margin: 0px;
 }
@@ -106,12 +102,6 @@ body {
     padding-right: 0px;
 }
 
-#success-alert {
-    margin-top: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    display: none;
-}
-
 .thumbnail {
     padding: 0px;
     overflow: hidden;
@@ -130,7 +120,6 @@ body {
 
 .image-text {
     bottom: 140px;
-    color: white;
     height: 100%;
     line-height: 140px;
     position: absolute;
@@ -140,7 +129,6 @@ body {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
     margin-bottom: -140px;
     display: none;
     cursor: pointer;

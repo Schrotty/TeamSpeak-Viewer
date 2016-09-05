@@ -22,6 +22,9 @@
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/mobile.css" rel="stylesheet">
     <link href="css/pace.style.css" rel="stylesheet">
+
+    <!-- Custom Theme -->
+    <?php require_once('lib/Theme.php'); ?>
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
