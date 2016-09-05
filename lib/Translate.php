@@ -4,7 +4,12 @@
 
     class Translation {
         public static function TranslateString($sTransString){
-            echo $sTranslation = Language::$aLang[$sTransString];
+            if(Config::$iDebug < 1){
+                echo $sTranslation = Language::$aLang[$sTransString];
+                return;
+            }
+            
+            echo $sTransString;
         }
     }
 ?>

@@ -1,5 +1,8 @@
 <?php
     class Config {
+        /** ### Application Settings ### */
+        public static $iDebug = 0;
+
         /* ### Query Settings ### */
         public static $sQueryName = "dev_view";
         public static $sQueryPasswd = "a1g7ZGQF";
@@ -11,5 +14,8 @@
 
         /* ### Translation Settings ### */
         public static $sLanguage = "de";
+
+        /* ### Module & Theme Settings ### */
+        public static $sTheme = "default";
     }
 ?>  
