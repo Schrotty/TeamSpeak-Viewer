@@ -96,14 +96,16 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    
+    <!-- Third-Party -->
+    <script src="js/pace.min.js"></script>
+    <script src="js/push.min.js"></script>
+    <script src="js/store.min.js"></script>
 
     <!-- Custom JavaScript -->
     <script src="js/util.js"></script>
     <script src="js/config.js"></script>
     <script src="js/viewer.js"></script>
     <script src="js/action.js"></script>
-
-    <!-- Third-Party -->
-    <script src="js/pace.min.js"></script>
   </body>
 </html>

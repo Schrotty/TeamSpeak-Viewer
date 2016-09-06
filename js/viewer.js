@@ -11,23 +11,69 @@ $( document ).ready(function() {
     });
 
     function loadViewerData(){
-        $.getJSON({
-            data: "json",
-            method: "POST",
-            url: "lib/Viewer.php"
-        }).done(function( data ){
-            //var obj = jQuery.parseJSON(data);
+        Pace.track(function(){
+            $.getJSON({
+                data: "json",
+                method: "POST",
+                url: "lib/Viewer.php"
+            }).done(function( data ){
+                $( "#viewer-body" ).find("tr").remove();
 
-            $.each(data, function(index, value) {
-                if(index == "user"){
-                    $( "#viewer-body" ).find("tr").remove();
-                    $( "#viewer-body" ).append(value);
-                    return;
-                }
+                var oldData = store.get('tsv_user');
 
-                $( "#alert-para" ).text(value[0].toString().capitalizeFirstLetter());
-                $( "#alert-panel" ).fadeIn('slow');
-            }); 
+                var aUsers = [];
+                $.each(data, function(index, value) {
+                    value.forEach(function(element) {
+                        var username = element.toString().split(';')[0]; 
+                        aUsers.push(username);
+                    }, this);
+                }); 
+
+                findDiffrent(oldData, aUsers);
+                store.set('tsv_user', aUsers);
+
+                $.each(data, function(index, value) {
+                    if(index == "user"){
+                        value.forEach(function(element) {
+                            var arr = element.toString().split(';');     
+                            var html = "<tr><td class='client-name'>" + arr[0] + "</td><td>" + arr[1]  + "</td></tr>";
+
+                            $( "#viewer-body" ).append(html);     
+                        }, this);
+                        
+                        return;
+                    }
+
+                    $( "#alert-para" ).text(value[0].toString().capitalizeFirstLetter());
+                    $( "#alert-panel" ).fadeIn('slow');
+                }); 
+            });
+        });
+    }
+
+    function findDiffrent(oldData, newData){
+        $.each(oldData, function(index, value){
+            var username = value.toString().split(';')[0];
+            if(newData.indexOf(username) == -1){
+                createPush("User Left:", username);
+            }
+        });
+
+        $.each(newData, function(index, value){
+            var username = value.toString().split(';')[0];
+            if(oldData.indexOf(username) == -1){
+                createPush("User Joined:", username);
+            }
+        });
+    }
+
+    function createPush(action, username){
+        Push.create(action, {
+            body: username,
+            timeout: 4000,
+            onClick: function () {
+                this.close();
+            }
         });
     }
 });
