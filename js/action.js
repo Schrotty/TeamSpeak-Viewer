@@ -16,12 +16,12 @@ $( document ).ready(function() {
 
     $( '.thumbnail' ).click(function(){
         var newBackground = $( this ).attr( 'value' );
-        localStorage.setItem("tsv_background_" + window.location.href, newBackground);
+        localStorage.setItem("background", newBackground);
 
         setBackground();
     });
 
     function setBackground(){
-        $( 'html' ).css( 'background-image', 'url(' + window.location.href + '/img/backgrounds/' + localStorage.getItem("tsv_background_" +  window.location.href) + ')' );
+        $( 'html' ).css( 'background-image', 'url(' + window.location.href + '/img/backgrounds/' + localStorage.getItem("background") + ')' );
     }
 });
