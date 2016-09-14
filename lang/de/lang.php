@@ -11,7 +11,11 @@
             "background-gallery-title"  =>      "Hintergrundgalerie",
             "close"                     =>      "Schließen",
             "save"                      =>      "Speichern",
-            "saved"                     =>      "Gespeichert!"    
+            "saved"                     =>      "Gespeichert!",
+
+            /* ### Notifications ### */
+            "notification-sounds-title" =>      "Benachrichtigungssounds",
+            "notification-sounds-btn"   =>      "Sounds öffnen",  
         );      
     }
 ?>

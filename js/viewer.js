@@ -55,19 +55,19 @@ $( document ).ready(function() {
         $.each(oldData, function(index, value){
             var username = value.toString().split(';')[0];
             if(newData.indexOf(username) == -1){
-                createPush("User Left:", username);
+                createPush("left", "User Left:", username);
             }
         });
 
         $.each(newData, function(index, value){
             var username = value.toString().split(';')[0];
             if(oldData.indexOf(username) == -1){
-                createPush("User Joined:", username);
+                createPush("join", "User Joined:", username);
             }
         });
     }
 
-    function createPush(action, username){
+    function createPush(action, text, username){
         Push.create(action, {
             body: username,
             timeout: 4000,
@@ -75,5 +75,11 @@ $( document ).ready(function() {
                 this.close();
             }
         });
+
+        if(action == "left"){
+            //PlaySound('disconnected', store.get('soundpack'));
+        }else{
+            //PlaySound('connected', store.get('soundpack'));
+        }
     }
 });

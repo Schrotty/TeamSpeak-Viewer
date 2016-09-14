@@ -93,10 +93,6 @@ body {
     padding: 8px;
 }
 
-#last {
-    padding: 0px;
-}
-
 #last button {
     width: 100%;
     padding-right: 0px;
@@ -137,4 +133,15 @@ body {
 .image-text div {
     position: absolute;
     line-height: 100%;
+}
+
+.pack {
+    height: 140px;
+    width: 100%;
+}
+
+.pack p {
+    margin-left: 15px;
+    font-size: 16px;
+    width: 100%;
 }
