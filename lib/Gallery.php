@@ -16,7 +16,7 @@
             }
 
             echo '<div class="col-md-6 col-md-4 gallery-image">';
-                echo '<div class="thumbnail" value="' . $sFile . '">';
+                echo '<div class="thumbnail" role="background" value="' . $sFile . '">';
                     echo '<img class="gallery-image" src="' . $sFolder . '/' . $sFile .'">';
                     echo '<div class="image-text" value="' . $sFile . '">' . $sImageTitle . '</div>';
                 echo '</div>';
@@ -34,4 +34,6 @@
     }
 
     echo '</div>';
+
+    chdir("../../");
 ?>

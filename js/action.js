@@ -15,10 +15,16 @@ $( document ).ready(function() {
     });
 
     $( '.thumbnail' ).click(function(){
-        var newBackground = $( this ).attr( 'value' );
-        localStorage.setItem("background", newBackground);
+        var role = $( this ).attr( 'role' );
+        var value = $( this ).attr( 'value' );
 
-        setBackground();
+        if(role == "background"){
+            localStorage.setItem("background", value);
+            setBackground();
+            return;
+        }
+
+        store.set('soundpack', value);
     });
 
     function setBackground(){

@@ -11,7 +11,9 @@
             "background-gallery-title"  =>      "Backgroundgallery",
             "close"                     =>      "Close",
             "save"                      =>      "Save",
-            "saved"                     =>      "Saved!" 
+            "saved"                     =>      "Saved!",
+            "notification-sounds"       =>      "Notification sounds",
+            "notification-sounds-btn"   =>      "Open Sounds" 
         );      
     }
 ?>

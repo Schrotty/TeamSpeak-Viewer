@@ -62,13 +62,25 @@
           <div style="clear:left; width:30px;"></div>
         </div>
         <div class="panel-body">
-          <div class="col-md-6"><?php Translation::TranslateString("background-gallery") ?></div>
-          <div class="col-md-6" id="last">
-            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#background-gallery"><?php Translation::TranslateString("background-gallery-btn") ?></button>
+          <!-- Backgrounds -->
+          <div class ="col-md-12">
+            <div class="col-md-6"><?php Translation::TranslateString("background-gallery") ?></div>
+            <div class="col-md-6" id="last">
+              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#background-gallery"><?php Translation::TranslateString("background-gallery-btn") ?></button>
+            </div>
+          </div>
+
+          <!-- Notification Sounds -->
+          <div class="col-md-12">
+            <div class="col-md-6"><?php Translation::TranslateString("notification-sounds-title") ?></div>
+            <div class="col-md-6" id="last">
+              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sound-gallery"><?php Translation::TranslateString("notification-sounds-btn") ?></button>
+            </div>
           </div>
         </div>
       </div>
 
+      <!-- Background Gallery -->
       <div class="modal fade" tabindex="-1" role="dialog" id="background-gallery">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
@@ -78,6 +90,24 @@
             </div>
             <div class="modal-body">
               <?php require_once('lib/Gallery.php'); ?>   
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal"><?php Translation::TranslateString("close") ?></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notification Sounds -->
+      <div class="modal fade" tabindex="-1" role="dialog" id="sound-gallery">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><?php Translation::TranslateString("notification-sounds-title") ?></h4>
+            </div>
+            <div class="modal-body">
+              <?php require_once('lib/Sounds.php'); ?>   
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-dismiss="modal"><?php Translation::TranslateString("close") ?></button>
@@ -101,8 +131,10 @@
     <script src="js/pace.min.js"></script>
     <script src="js/push.min.js"></script>
     <script src="js/store.min.js"></script>
+    <script src="js/howler.min.js"></script>
 
     <!-- Custom JavaScript -->
+    <script src="js/sounder.js"></script>
     <script src="js/util.js"></script>
     <script src="js/config.js"></script>
     <script src="js/viewer.js"></script>
