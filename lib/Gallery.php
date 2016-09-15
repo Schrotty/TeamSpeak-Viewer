@@ -29,11 +29,13 @@
                 continue;
             }
 
+            if($key == count($aFolderContent) - 1){
+                echo "</div>";
+            }
+
             $iIndex++; 
         }
     }
-
-    //echo '</div>';
 
     chdir("../../");
 ?>
