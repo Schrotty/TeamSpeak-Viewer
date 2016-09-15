@@ -24,7 +24,7 @@
 
             echo '<div class="col-md-6 col-md-4 sound-image">';
                 echo '<div class="thumbnail" role="sound" value="' . $sFile . '">';
-                    echo '<img class="gallery-image" src="' . $sFolder . '/' . $sPackTitle .'/logo.png">';
+                    echo '<img class="gallery-image" src="' . $sFolder . $sPackTitle .'/logo.png">';
                     echo '<div class="image-text" value="' . $sFile . '">' . $aContent['title'] . '</div>';
                 echo '</div>';
             echo '</div>';
@@ -36,11 +36,13 @@
                 continue;
             }
 
+            if($key == count($aFolderContent) - 1){
+                echo "</div>";
+            }
+
             $iIndex++; 
         }
     }
-
-    echo '</div>';
 
     chdir("../../");
 ?>

@@ -62,18 +62,19 @@
           <div style="clear:left; width:30px;"></div>
         </div>
         <div class="panel-body">
+        
           <!-- Backgrounds -->
-          <div class ="col-md-12">
+          <div class="settings-col">
             <div class="col-md-6"><?php Translation::TranslateString("background-gallery") ?></div>
-            <div class="col-md-6" id="last">
+            <div class="col-md-6">
               <button type="button" class="btn btn-default" data-toggle="modal" data-target="#background-gallery"><?php Translation::TranslateString("background-gallery-btn") ?></button>
             </div>
           </div>
 
           <!-- Notification Sounds -->
-          <div class="col-md-12">
+          <div class="settings-col">
             <div class="col-md-6"><?php Translation::TranslateString("notification-sounds-title") ?></div>
-            <div class="col-md-6" id="last">
+            <div class="col-md-6">
               <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sound-gallery"><?php Translation::TranslateString("notification-sounds-btn") ?></button>
             </div>
           </div>
@@ -88,7 +89,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title"><?php Translation::TranslateString("background-gallery-title") ?></h4>
             </div>
-            <div class="modal-body">
+            <div id="gallery-body" class="modal-body">
               <?php require_once('lib/Gallery.php'); ?>   
             </div>
             <div class="modal-footer">
@@ -108,6 +109,19 @@
             </div>
             <div class="modal-body">
               <?php require_once('lib/Sounds.php'); ?>   
+
+              <!-- Test Area -->
+              <div class="row">
+              <div class="col-md-12">
+                  <div class="input-group">
+                    <input id="volume" type="text" class="form-control" placeholder="Volume">
+                    <div class="input-group-btn">
+                      <button id="join-sound" class="btn btn-default" type="button"><?php Translation::TranslateString("notification-join-test-btn") ?></button>
+                      <button id="left-sound" class="btn btn-default" type="button"><?php Translation::TranslateString("notification-left-test-btn") ?></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-dismiss="modal"><?php Translation::TranslateString("close") ?></button>
@@ -134,8 +148,8 @@
     <script src="js/howler.min.js"></script>
 
     <!-- Custom JavaScript -->
-    <script src="js/sounder.js"></script>
     <script src="js/util.js"></script>
+    <script src="js/sounder.js"></script>
     <script src="js/config.js"></script>
     <script src="js/viewer.js"></script>
     <script src="js/action.js"></script>
