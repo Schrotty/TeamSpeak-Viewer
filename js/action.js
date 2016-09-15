@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+    loadLanguage();
     setBackground();
 
     /* ### Volume Settings ### */
@@ -16,18 +17,6 @@ $( document ).ready(function() {
         PlaySound('disconnected', store.get('soundpack'));
     });
 
-    /* ### Gallery Settings ### */
-    /*$('#background-gallery').on('shown.bs.modal', function () {
-        $.ajax({
-            url: 'lib/Gallery.php',
-            async: false,
-            success: function(data) {
-                $( '#gallery-body' ).empty(); 
-                $( '#gallery-body' ).append(data);
-            }
-        });
-    })*/
-
     $( '#settings-icon' ).click( function(){
         if($( '#settings-panel' ).css( 'display' ) == "none"){
             $( '#settings-panel' ).fadeIn('slow');
@@ -39,6 +28,11 @@ $( document ).ready(function() {
 
     $( '#close-icon' ).click( function(){
         $( '#settings-panel' ).fadeOut('slow');
+    });
+
+    $( '.option' ).click(function(){
+        store.set('language', $( this ).attr( 'value' ));
+        loadLanguage();
     });
 
     $( '.thumbnail' ).click(function(){
@@ -54,7 +48,13 @@ $( document ).ready(function() {
         store.set('soundpack', value);
     });
 
+    function loadLanguage(){
+        if(getParameterByName('lang') != store.get('language')){
+            window.location.replace("/?lang=" + store.get('language'));
+        }
+    }
+
     function setBackground(){
-        $( 'html' ).css( 'background-image', 'url(' + window.location.href + '/img/backgrounds/' + localStorage.getItem("background") + ')' );
+        $( 'html' ).css( 'background-image', 'url(/img/backgrounds/' + store.get("background") + ')' );
     }
 });

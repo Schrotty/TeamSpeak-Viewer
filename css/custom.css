@@ -148,8 +148,8 @@ body {
     min-height: 1px;
 }
 
-.settings-col:first-child {
-    margin-bottom: 5px;
+.settings-col:not(first-child) {
+    margin-top: 5px;
 }
 
 .settings-col .col-md-6 {
@@ -164,7 +164,7 @@ body {
     padding-right: 0px;    
 }
 
-.settings-col .col-md-6:not(:first-child) button {
+.settings-col .col-md-6:not(:first-child) button, ul {
     width: 100%;
 }
 

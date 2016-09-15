@@ -1,6 +1,7 @@
 <?php
-    class Language {
-        public static $aLang = array(
+    class en {
+        public $sLangTitle = "English";
+        public $aLang = array(
             /* ### Fixed (if you want ;) ### */
             "application-title"             =>      "TeamSpeak Viewer",
 
@@ -14,6 +15,9 @@
 
             /* ### Settings ### */
             "settings"                      =>      "Settings",
+
+            /* ### Translation ### */
+            "translation"                   =>      "Translation",
 
             /* ### Gallery ### */
             "background-gallery"            =>      "Background Gallery",

@@ -1,6 +1,7 @@
 <?php
-    class Language {
-        public static $aLang = array(
+    class de {
+        public $sLangTitle = "Deutsch";
+        public $aLang = array(
             /* ### Fixed (if you want ;) ### */
             "application-title"             =>      "TeamSpeak Viewer",
 
@@ -15,6 +16,9 @@
             /* ### Settings ### */
             "settings"                      =>      "Einstellungen",
 
+            /* ### Translation ### */
+            "translation"                   =>      "Übersetzung",
+
             /* ### Gallery ### */
             "background-gallery"            =>      "Hintergrundgalerie",
             "background-gallery-btn"        =>      "Galerie öffnen",
@@ -24,6 +28,6 @@
             "notification-sounds-btn"       =>      "Sounds öffnen",
             "notification-join-test-btn"    =>      "'Connected' abspielen",
             "notification-left-test-btn"    =>      "'Disconnected' abspielen"  
-        );      
+        );    
     }
 ?>
