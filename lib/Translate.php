@@ -1,12 +1,25 @@
 <?php
     require_once('config/Config.php');
-    require_once('lang/' . Config::$sLanguage . '/lang.php');
 
     class Translation {
-        public static function TranslateString($sTransString){
-            if(Translation::CanTranslate($sTransString)){
+        private $sLang;
+        private $olang;
+
+        public function __construct(){
+            $this->sLang = Config::$sLanguage;
+            if(isset($_GET['lang'])){
+                $this->sLang = $_GET['lang'];
+            }
+
+            require_once('lang/' . $this->sLang . '/lang.php');
+
+            $this->oLang = new $this->sLang();
+        }
+
+        public function TranslateString($sTransString){
+            if($this->CanTranslate($sTransString)){
                 if(Config::$iDebug < 1){
-                    echo $sTranslation = Language::$aLang[$sTransString];
+                    echo $sTranslation = $this->oLang->aLang[$sTransString];
                     return;
                 }
                             
@@ -17,8 +30,20 @@
             echo $sTransString;
         }
 
-        private static function CanTranslate($sTransString){
-            foreach(Language::$aLang as $sKey => $slang){
+        public function ListTranslation(){
+            $aLangFolders = scandir('lang/');
+            foreach($aLangFolders as $sKey => $sLangFolder){
+                if($sLangFolder != "." && $sLangFolder != ".." && $sLangFolder != ".htaccess"){
+                    require_once('lang/' . $sLangFolder . '/lang.php'); //hate it...
+                    $oTmpLang = new $sLangFolder();
+                    echo '<li><a class="option" value=' . $sLangFolder . '>' . $oTmpLang->sLangTitle . '</a></li>';
+                }
+            }
+        }
+
+        public function CanTranslate($sTransString){
+            $this->oLang = new $this->sLang();
+            foreach($this->oLang->aLang as $sKey => $slang){
                 if($sKey == $sTransString){
                     return true;
                 }

@@ -7,10 +7,10 @@
     <link rel="shortcut icon" type="image/png" href="./img/icon/favicon.png"/>
 
     <!-- Translation -->
-    <?php require_once('lib/Translate.php'); ?>
+    <?php require_once('lib/Translate.php'); $oTranslation = new Translation(); ?>
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title><?php Translation::TranslateString("title") ?></title>
+    <title><?php $oTranslation->TranslateString("title") ?></title>
 
     <!-- Roboto Font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -38,7 +38,7 @@
       <div class="panel panel-default">
           <div class="panel-heading">
               <image id="settings-icon" class="click-img" src="./img/icon/extender.png">
-              <h3 class="panel-title translate" id="application-title"><?php Translation::TranslateString("application-title") ?></h3>
+              <h3 class="panel-title translate" id="application-title"><?php $oTranslation->TranslateString("application-title") ?></h3>
               <image id="refresh-icon" class="click-img" src="./img/icon/refresh.png">
               <div style="clear:left; width:30px;"></div>
           </div>
@@ -46,8 +46,8 @@
               <table class="table" id="table-view">
                 <thead>
                   <tr>
-                    <th class="translate" id="username-text"><?php Translation::TranslateString("username") ?></th>
-                    <th class="translate" id="channel-text"><?php Translation::TranslateString("channel") ?></th>
+                    <th class="translate" id="username-text"><?php $oTranslation->TranslateString("username") ?></th>
+                    <th class="translate" id="channel-text"><?php $oTranslation->TranslateString("channel") ?></th>
                   </tr>
                 </thead>
                 <tbody id="viewer-body"></tbody>
@@ -57,25 +57,41 @@
 
       <div class="panel panel-default" id="settings-panel">
         <div class="panel-heading">
-          <h3 class="panel-title" id="settings-title"><?php Translation::TranslateString("settings") ?></h3>
+          <h3 class="panel-title" id="settings-title"><?php $oTranslation->TranslateString("settings") ?></h3>
           <image id="close-icon" class="click-img" src="./img/icon/close.png">
           <div style="clear:left; width:30px;"></div>
         </div>
         <div class="panel-body">
-        
+
+          <!-- Language -->
+          <div class="settings-col">
+            <div class="col-md-6"><?php $oTranslation->TranslateString("translation") ?></div>
+            <div class="col-md-6">
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="language-drop-down" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <?php $oTranslation->TranslateString("translation") ?>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="language-drop-down">
+                  <?php $oTranslation->ListTranslation() ?>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           <!-- Backgrounds -->
           <div class="settings-col">
-            <div class="col-md-6"><?php Translation::TranslateString("background-gallery") ?></div>
+            <div class="col-md-6"><?php $oTranslation->TranslateString("background-gallery") ?></div>
             <div class="col-md-6">
-              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#background-gallery"><?php Translation::TranslateString("background-gallery-btn") ?></button>
+              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#background-gallery"><?php $oTranslation->TranslateString("background-gallery-btn") ?></button>
             </div>
           </div>
 
           <!-- Notification Sounds -->
           <div class="settings-col">
-            <div class="col-md-6"><?php Translation::TranslateString("notification-sounds") ?></div>
+            <div class="col-md-6"><?php $oTranslation->TranslateString("notification-sounds") ?></div>
             <div class="col-md-6">
-              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sound-gallery"><?php Translation::TranslateString("notification-sounds-btn") ?></button>
+              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sound-gallery"><?php $oTranslation->TranslateString("notification-sounds-btn") ?></button>
             </div>
           </div>
         </div>
@@ -87,13 +103,13 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><?php Translation::TranslateString("background-gallery") ?></h4>
+              <h4 class="modal-title"><?php $oTranslation->TranslateString("background-gallery") ?></h4>
             </div>
             <div id="gallery-body" class="modal-body">
               <?php require_once('lib/Gallery.php'); ?>   
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal"><?php Translation::TranslateString("close") ?></button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal"><?php $oTranslation->TranslateString("close") ?></button>
             </div>
           </div>
         </div>
@@ -105,7 +121,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><?php Translation::TranslateString("notification-sounds") ?></h4>
+              <h4 class="modal-title"><?php $oTranslation->TranslateString("notification-sounds") ?></h4>
             </div>
             <div class="modal-body">
               <?php require_once('lib/Sounds.php'); ?>   
@@ -117,15 +133,15 @@
                     <span class="input-group-addon" id="sizing-addon2">%</span>
                     <input id="volume" type="text" class="form-control" placeholder="Volume">
                     <div class="input-group-btn">
-                      <button id="join-sound" class="btn btn-default" type="button"><?php Translation::TranslateString("notification-join-test-btn") ?></button>
-                      <button id="left-sound" class="btn btn-default" type="button"><?php Translation::TranslateString("notification-left-test-btn") ?></button>
+                      <button id="join-sound" class="btn btn-default" type="button"><?php $oTranslation->TranslateString("notification-join-test-btn") ?></button>
+                      <button id="left-sound" class="btn btn-default" type="button"><?php $oTranslation->TranslateString("notification-left-test-btn") ?></button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal"><?php Translation::TranslateString("close") ?></button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal"><?php $oTranslation->TranslateString("close") ?></button>
             </div>
           </div>
         </div>

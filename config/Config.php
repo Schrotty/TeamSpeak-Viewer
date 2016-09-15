@@ -12,7 +12,7 @@
         public static $sServerIP = "127.0.0.1";
         public static $sServerPort = "9987";
 
-        /* ### Translation Settings ### */
+        /* ### Default Translation Settings ### */
         public static $sLanguage = "en";
 
         /* ### Module & Theme Settings ### */
