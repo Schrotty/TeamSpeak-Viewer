@@ -13,7 +13,7 @@
         public static $sServerPort = "9987";
 
         /* ### Translation Settings ### */
-        public static $sLanguage = "de";
+        public static $sLanguage = "en";
 
         /* ### Module & Theme Settings ### */
         public static $sTheme = "default";

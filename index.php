@@ -46,8 +46,8 @@
               <table class="table" id="table-view">
                 <thead>
                   <tr>
-                    <th class="translate" id="username-text"><?php Translation::TranslateString("username-text") ?></th>
-                    <th class="translate" id="channel-text"><?php Translation::TranslateString("channel-text") ?></th>
+                    <th class="translate" id="username-text"><?php Translation::TranslateString("username") ?></th>
+                    <th class="translate" id="channel-text"><?php Translation::TranslateString("channel") ?></th>
                   </tr>
                 </thead>
                 <tbody id="viewer-body"></tbody>
@@ -73,7 +73,7 @@
 
           <!-- Notification Sounds -->
           <div class="settings-col">
-            <div class="col-md-6"><?php Translation::TranslateString("notification-sounds-title") ?></div>
+            <div class="col-md-6"><?php Translation::TranslateString("notification-sounds") ?></div>
             <div class="col-md-6">
               <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sound-gallery"><?php Translation::TranslateString("notification-sounds-btn") ?></button>
             </div>
@@ -87,7 +87,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><?php Translation::TranslateString("background-gallery-title") ?></h4>
+              <h4 class="modal-title"><?php Translation::TranslateString("background-gallery") ?></h4>
             </div>
             <div id="gallery-body" class="modal-body">
               <?php require_once('lib/Gallery.php'); ?>   
@@ -105,7 +105,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><?php Translation::TranslateString("notification-sounds-title") ?></h4>
+              <h4 class="modal-title"><?php Translation::TranslateString("notification-sounds") ?></h4>
             </div>
             <div class="modal-body">
               <?php require_once('lib/Sounds.php'); ?>   
@@ -114,6 +114,7 @@
               <div class="row">
               <div class="col-md-12">
                   <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon2">%</span>
                     <input id="volume" type="text" class="form-control" placeholder="Volume">
                     <div class="input-group-btn">
                       <button id="join-sound" class="btn btn-default" type="button"><?php Translation::TranslateString("notification-join-test-btn") ?></button>
