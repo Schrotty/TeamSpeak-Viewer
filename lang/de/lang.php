@@ -1,21 +1,29 @@
 <?php
     class Language {
         public static $aLang = array(
-            "title"                     =>      "[DEV] TSV",
-            "application-title"         =>      "TeamSpeak Viewer",
-            "username-text"             =>      "Benutzername",
-            "channel-text"              =>      "Channel",
-            "settings"                  =>      "Einstellungen",
-            "background-gallery"        =>      "Hintergrund",
-            "background-gallery-btn"    =>      "Galerie öffnen",
-            "background-gallery-title"  =>      "Hintergrundgalerie",
-            "close"                     =>      "Schließen",
-            "save"                      =>      "Speichern",
-            "saved"                     =>      "Gespeichert!",
+            /* ### Fixed (if you want ;) ### */
+            "application-title"             =>      "TeamSpeak Viewer",
+
+            /* ### Generic ### */
+            "title"                         =>      "[DEV] TSV",
+            "username"                      =>      "Benutzername",
+            "channel"                       =>      "Channel",
+            "close"                         =>      "Schließen",
+            "save"                          =>      "Speichern",
+            "saved"                         =>      "Gespeichert!",
+
+            /* ### Settings ### */
+            "settings"                      =>      "Einstellungen",
+
+            /* ### Gallery ### */
+            "background-gallery"            =>      "Hintergrundgalerie",
+            "background-gallery-btn"        =>      "Galerie öffnen",
 
             /* ### Notifications ### */
-            "notification-sounds-title" =>      "Benachrichtigungssounds",
-            "notification-sounds-btn"   =>      "Sounds öffnen",  
+            "notification-sounds"           =>      "Benachrichtigungssounds",
+            "notification-sounds-btn"       =>      "Sounds öffnen",
+            "notification-join-test-btn"    =>      "'Connected' abspielen",
+            "notification-left-test-btn"    =>      "'Disconnected' abspielen"  
         );      
     }
 ?>
