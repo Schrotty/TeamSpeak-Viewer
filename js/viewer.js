@@ -20,6 +20,9 @@ $( document ).ready(function() {
                 $( "#viewer-body" ).find("tr").remove();
 
                 var oldData = store.get('tsv_user');
+                if(typeof(oldData) == 'undefined'){
+                    oldData = new Array();
+                }
 
                 var aUsers = [];
                 $.each(data, function(index, value) {
@@ -68,7 +71,7 @@ $( document ).ready(function() {
     }
 
     function createPush(action, text, username){
-        Push.create(action, {
+        Push.create(text, {
             body: username,
             timeout: 4000,
             onClick: function () {
@@ -77,9 +80,9 @@ $( document ).ready(function() {
         });
 
         if(action == "left"){
-            //PlaySound('disconnected', store.get('soundpack'));
+            PlaySound('disconnected', store.get('soundpack'));
         }else{
-            //PlaySound('connected', store.get('soundpack'));
+            PlaySound('connected', store.get('soundpack'));
         }
     }
 });

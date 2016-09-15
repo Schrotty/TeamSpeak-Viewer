@@ -89,10 +89,6 @@ body {
     float: right;
 }
 
-.col-md-6 {
-    padding: 8px;
-}
-
 #last button {
     width: 100%;
     padding-right: 0px;
@@ -144,4 +140,34 @@ body {
     margin-left: 15px;
     font-size: 16px;
     width: 100%;
+}
+
+.settings-col {
+    display: table;
+    width: 100%;
+    min-height: 1px;
+}
+
+.settings-col:first-child {
+    margin-bottom: 5px;
+}
+
+.settings-col .col-md-6 {
+    padding-left: 8px;
+}
+
+.settings-col .col-md-6:first-child {
+    height: 100%;
+}
+
+.settings-col .col-md-6:not(:first-child) {
+    padding-right: 0px;    
+}
+
+.settings-col .col-md-6:not(:first-child) button {
+    width: 100%;
+}
+
+#gallery-loading {
+    height: 150px;
 }
