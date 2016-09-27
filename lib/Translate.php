@@ -4,6 +4,7 @@
     class Translation {
         private $sLang;
         private $olang;
+        private $bError;
 
         public function __construct(){
             $this->sLang = Config::$sLanguage;
@@ -11,9 +12,18 @@
                 $this->sLang = $_GET['lang'];
             }
 
-            require_once('lang/' . $this->sLang . '/lang.php');
+            if($this->LanguageExists('lang/' . $this->sLang . '/lang.php')){
+                require('lang/' . $this->sLang . '/lang.php');
+            }else{
+                require('lang/' . Config::$sLanguage . '/lang.php');
+                $this->sLang = Config::$sLanguage;
+            }
 
             $this->oLang = new $this->sLang();
+        }
+
+        public function LanguageExists($sLang){
+            return file_exists($sLang);
         }
 
         public function TranslateString($sTransString){
@@ -25,7 +35,7 @@
                             
                 echo $sTransString;
                 return;
-            }
+            }   
 
             echo $sTransString;
         }

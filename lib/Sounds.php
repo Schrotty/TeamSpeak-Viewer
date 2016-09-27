@@ -23,9 +23,11 @@
             }
 
             echo '<div class="col-md-6 col-md-4 sound-image">';
-                echo '<div class="thumbnail" role="sound" value="' . $sFile . '">';
-                    echo '<img class="gallery-image" src="' . $sFolder . $sPackTitle .'/logo.png">';
-                    echo '<div class="image-text" value="' . $sFile . '">' . $aContent['title'] . '</div>';
+                echo '<div id="' . $sFile . '-sp" class="thumbnail-wrapper" role="sound" value="' . $sFile . '">';
+                    echo '<div class="thumbnail">';
+                        echo '<img class="gallery-image" src="' . $sFolder . $sPackTitle .'/logo.png">';
+                        echo '<div class="image-text" value="' . $sFile . '">' . $aContent['title'] . '</div>';
+                    echo '</div>';
                 echo '</div>';
             echo '</div>';
 

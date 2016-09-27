@@ -98,6 +98,10 @@ body {
     padding: 0px;
     overflow: hidden;
     position: relative;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 0px;
 }
 
 .thumbnail img {
@@ -129,6 +133,24 @@ body {
 .image-text div {
     position: absolute;
     line-height: 100%;
+    display: block;
+}
+
+.thumbnail-wrapper {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 4px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.promter {
+
+}
+
+.gallery-image {
+
 }
 
 .pack {
@@ -166,8 +188,4 @@ body {
 
 .settings-col .col-md-6:not(:first-child) button, ul {
     width: 100%;
-}
-
-#gallery-loading {
-    height: 150px;
 }
