@@ -1,20 +1,28 @@
 $( document ).ready(function() {
-    loadLanguage();
+    setLanguage();
     setBackground();
+    setSoundpack();
 
     /* ### Volume Settings ### */
-    $( '#volume' ).val(store.get('volume'));
+    $( '#volume' ).val(function(){
+        var volume = getStorage('volume');
+        if(volume == null){
+            return setStorage('volume', 100);
+        }
+
+        return volume;
+    });
 
     $( '#volume' ).change(function(){
         store.set('volume', $( this ).val());
     });
 
     $( '#join-sound' ).click(function(){
-        PlaySound('connected', store.get('soundpack'));
+        playSound('connected');
     });
 
     $( '#left-sound' ).click(function(){
-        PlaySound('disconnected', store.get('soundpack'));
+        playSound('disconnected');
     });
 
     $( '#settings-icon' ).click( function(){
@@ -32,7 +40,7 @@ $( document ).ready(function() {
 
     $( '.option' ).click(function(){
         store.set('language', $( this ).attr( 'value' ));
-        loadLanguage();
+        setLanguage();
     });
 
     $( '.thumbnail-wrapper' ).click(function(){
@@ -51,31 +59,24 @@ $( document ).ready(function() {
     });
 
     $('#background-gallery').on('show.bs.modal', function (e) {
-        var id = store.get( 'background' ).split( '.' )[0];
-        var obj = $( '#' + id );
+        var id = getStorage('background');
+        
+        if(id == null){
+            return;
+        }
+
+        var obj = $( '#' + id.split('.')[0] );
 
         markThumbnail( obj );
     })
 
     $('#sound-gallery').on('show.bs.modal', function (e) {
-        markThumbnail( $( '#' + store.get( 'soundpack' ) + '-sp' ) );
-    })
-
-    function markThumbnail(data){
-        $(".thumbnail-wrapper").each(function() {
-            $( this ).removeClass( 'marked' ); 
-        });
-
-        $( data ).addClass( 'marked' );
-    }
-
-    function loadLanguage(){
-        if(getParameterByName('lang') != store.get('language')){
-            window.location.replace("/?lang=" + store.get('language'));
+        var soundpack = getStorage('soundpack');
+        
+        if(soundpack == null){
+            return;
         }
-    }
 
-    function setBackground(){
-        $( 'html' ).css( 'background-image', 'url(/img/backgrounds/' + store.get("background") + ')' );
-    }
+        markThumbnail( $( '#' + getStorage('soundpack') + '-sp' ) );
+    })
 });

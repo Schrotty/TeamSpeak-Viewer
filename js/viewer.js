@@ -32,10 +32,12 @@ $( document ).ready(function() {
                     }, this);
                 }); 
 
-                findDiffrent(oldData, aUsers);
-                store.set('tsv_user', aUsers);
-
+                var sFoundError;
                 $.each(data, function(index, value) {
+                    if(typeof index != 'undefined'){
+                        sFoundError = index;
+                    }
+                    
                     if(index == "user"){
                         value.forEach(function(element) {
                             var arr = element.toString().split(';');     
@@ -43,13 +45,18 @@ $( document ).ready(function() {
 
                             $( "#viewer-body" ).append(html);     
                         }, this);
-                        
-                        return;
                     }
 
-                    $( "#alert-para" ).text(value[0].toString().capitalizeFirstLetter());
-                    $( "#alert-panel" ).fadeIn('slow');
+                    if(index == "error" || index == 0){
+                        $( "#alert-para" ).text(value[0].toString().capitalizeFirstLetter());
+                        $( "#alert-panel" ).fadeIn('slow');
+                    }
                 }); 
+
+                if(sFoundError != "error"){
+                    findDiffrent(oldData, aUsers);
+                    store.set('tsv_user', aUsers);
+                }
             });
         });
     }
