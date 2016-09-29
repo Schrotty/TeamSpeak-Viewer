@@ -12,7 +12,7 @@
             $clientid = $client['clid'];
             $pos = strpos($client, "from");
             if($pos != true){
-                $aResults->user[] = "<tr><td class='client-name'>" . $client["client_nickname"] . "</td><td>" . $ts3->channelGetById($client['cid']) . "</td></tr>";
+                $aResults->user[] = "" . $client["client_nickname"] . ";" . $ts3->channelGetById($client['cid']) . "";
             }
         }   
     } catch(Exception $excep) {

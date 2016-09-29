@@ -7,9 +7,9 @@ html {
 }
 
 body {
-    font-family: 'Roboto';
     font-size: 16px;
     background: none;
+    cursor: default;
 }
 
 /* ### Custom Panel CSS ### */
@@ -25,11 +25,9 @@ body {
 
 .panel .panel-heading {
     height: 48px;
-    background-color: rgb(232, 232, 232);
 }
 
 .panel-heading .panel-title {
-    color: rgba(0, 0, 0, 0.4);
     font-size: 22px;
 }
 
@@ -49,7 +47,6 @@ body {
 .table th {
     font-size: 18px;
     text-align: left;
-    font-family: 'Roboto', sans-serif;
     font-weight: normal;
     margin: 0px;
 }
@@ -93,29 +90,19 @@ body {
     float: right;
 }
 
-.col-md-6 {
-    padding: 8px;
-}
-
-#last {
-    padding: 0px;
-}
-
 #last button {
     width: 100%;
     padding-right: 0px;
-}
-
-#success-alert {
-    margin-top: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    display: none;
 }
 
 .thumbnail {
     padding: 0px;
     overflow: hidden;
     position: relative;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 0px;
 }
 
 .thumbnail img {
@@ -130,7 +117,6 @@ body {
 
 .image-text {
     bottom: 140px;
-    color: white;
     height: 100%;
     line-height: 140px;
     position: absolute;
@@ -140,7 +126,6 @@ body {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
     margin-bottom: -140px;
     display: none;
     cursor: pointer;
@@ -149,4 +134,60 @@ body {
 .image-text div {
     position: absolute;
     line-height: 100%;
+    display: block;
+}
+
+.thumbnail-wrapper {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 4px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.pack {
+    height: 140px;
+    width: 100%;
+}
+
+.pack p {
+    margin-left: 15px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.settings-col {
+    display: table;
+    width: 100%;
+    min-height: 1px;
+}
+
+.settings-col:not(first-child) {
+    margin-top: 5px;
+}
+
+.settings-col .col-md-6 {
+    padding-left: 8px;
+}
+
+.settings-col .col-md-6:first-child {
+    height: 100%;
+}
+
+.settings-col .col-md-6:not(:first-child) {
+    padding-right: 0px;    
+}
+
+.settings-col .col-md-6:not(:first-child) button, ul {
+    width: 100%;
+}
+
+.option {
+    cursor: pointer;
+}
+
+.dropdown-menu > li > a:hover {
+    background-color: #337ab7;
+    color: white;
 }
