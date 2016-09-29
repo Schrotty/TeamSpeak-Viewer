@@ -7,7 +7,7 @@
     <link rel="shortcut icon" type="image/png" href="./img/icon/favicon.png"/>
 
     <!-- Translation -->
-    <?php require_once('lib/Translate.php'); $oTranslation = new Translation(); ?>
+    <?php require_once('lib/Translator.php'); $oTranslation = new Translator(); ?>
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title><?php $oTranslation->TranslateString("title") ?></title>
@@ -25,6 +25,9 @@
 
     <!-- Custom Theme -->
     <?php require_once('lib/Theme.php'); ?>
+
+    <!-- ModLoader loads CSS -->
+    <?php //$oModLoader->LoadFilesByType('css'); ?>
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -147,7 +150,8 @@
         </div>
       </div>
 
-      <div id="alert-panel" class="alert alert-danger" role="alert">
+      <div id="alert-panel" class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <p id="alert-para"></p>
       </div>
     </div>
