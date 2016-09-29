@@ -19,6 +19,7 @@ $( document ).ready(function() {
             }).done(function( data ){
                 $( "#viewer-body" ).find("tr").remove();
 
+                var bLeastOne = false;
                 var oldData = store.get('tsv_user');
                 if(typeof(oldData) == 'undefined'){
                     oldData = new Array();
@@ -45,6 +46,8 @@ $( document ).ready(function() {
 
                             $( "#viewer-body" ).append(html);     
                         }, this);
+
+                        bLeastOne = true;
                     }
 
                     if(index == "error" || index == 0){
@@ -56,6 +59,13 @@ $( document ).ready(function() {
                 if(sFoundError != "error"){
                     findDiffrent(oldData, aUsers);
                     store.set('tsv_user', aUsers);
+                }
+
+                if(bLeastOne == false){
+                    getTranslation('leet', 'application-title');
+
+                    var html = "<tr><td class='client-name no-user'>No User</td><td>-</td></tr>";
+                    $( "#viewer-body" ).append(html);  
                 }
             });
         });
