@@ -1,33 +1,31 @@
 <?php
-    class de {
-        public $sLangTitle = "Deutsch";
-        public $aLang = array(
-            /* ### Fixed (if you want ;) ### */
-            "application-title"             =>      "TeamSpeak Viewer",
+    $sLangTitle = "Deutsch";
+    $aLang = array(
+        /* ### Fixed (if you want ;) ### */
+        "application-title"             =>      "TeamSpeak Viewer",
 
-            /* ### Generic ### */
-            "title"                         =>      "[DEV] TSV",
-            "username"                      =>      "Benutzername",
-            "channel"                       =>      "Channel",
-            "close"                         =>      "Schließen",
-            "save"                          =>      "Speichern",
-            "saved"                         =>      "Gespeichert!",
+        /* ### Generic ### */
+        "title"                         =>      "[DEV] TSV",
+        "username"                      =>      "Benutzername",
+        "channel"                       =>      "Channel",
+        "close"                         =>      "Schließen",
+        "save"                          =>      "Speichern",
+        "saved"                         =>      "Gespeichert!",
 
-            /* ### Settings ### */
-            "settings"                      =>      "Einstellungen",
+        /* ### Settings ### */
+        "settings"                      =>      "Einstellungen",
 
-            /* ### Translation ### */
-            "translation"                   =>      "Übersetzung",
+        /* ### Translation ### */
+        "translation"                   =>      "Übersetzung",
 
-            /* ### Gallery ### */
-            "background-gallery"            =>      "Hintergrundgalerie",
-            "background-gallery-btn"        =>      "Galerie öffnen",
+        /* ### Gallery ### */
+        "background-gallery"            =>      "Hintergrundgalerie",
+        "background-gallery-btn"        =>      "Galerie öffnen",
 
-            /* ### Notifications ### */
-            "notification-sounds"           =>      "Benachrichtigungssounds",
-            "notification-sounds-btn"       =>      "Sounds öffnen",
-            "notification-join-test-btn"    =>      "'Connected' abspielen",
-            "notification-left-test-btn"    =>      "'Disconnected' abspielen"  
-        );    
-    }
+        /* ### Notifications ### */
+        "notification-sounds"           =>      "Benachrichtigungssounds",
+        "notification-sounds-btn"       =>      "Sounds öffnen",
+        "notification-join-test-btn"    =>      "'Connected' abspielen",
+        "notification-left-test-btn"    =>      "'Disconnected' abspielen"  
+    );    
 ?>

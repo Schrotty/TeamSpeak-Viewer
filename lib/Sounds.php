@@ -1,7 +1,7 @@
 <?php
     require_once('config/Config.php');
 
-    $sFolder = 'modules/sounds/';
+    $sFolder = 'sounds/';
 
     chdir($sFolder);
 

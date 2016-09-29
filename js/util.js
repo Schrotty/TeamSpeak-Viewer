@@ -60,7 +60,8 @@ function setLanguage(){
         language = setStorage('language', 'en');
     }
 
-    if(getParameterByName('lang') != language){
+    var lang = getParameterByName('lang');
+    if(lang != language){
         window.location.replace("/?lang=" + language);
     }
 }
@@ -80,4 +81,18 @@ function setSoundpack(){
     if(soundpack == null){
         setStorage('soundpack', 'default');
     }
+}
+
+function getTranslation(language, index, type = null){
+    $.ajax({
+        url: 'lib/Translation.php',
+        type: 'POST',
+        data:{
+            lang: language,
+            index: index,
+            info: type
+        }
+    }).done(function( data ){
+        console.log( data );
+    })
 }
