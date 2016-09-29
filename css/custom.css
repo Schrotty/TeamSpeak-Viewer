@@ -145,14 +145,6 @@ body {
     border-radius: 5px;
 }
 
-.promter {
-
-}
-
-.gallery-image {
-
-}
-
 .pack {
     height: 140px;
     width: 100%;
@@ -188,4 +180,13 @@ body {
 
 .settings-col .col-md-6:not(:first-child) button, ul {
     width: 100%;
+}
+
+.option {
+    cursor: pointer;
+}
+
+.dropdown-menu > li > a:hover {
+    background-color: #337ab7;
+    color: white;
 }

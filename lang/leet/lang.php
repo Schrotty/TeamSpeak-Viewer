@@ -11,6 +11,7 @@
         "close"                         =>      "5chl13ßen",
         "save"                          =>      "5p31ch3rn",
         "saved"                         =>      "635p31ch3r7!",
+        "found-no-user"                 =>      "Y no user c0nn3t3d?",
 
         /* ### Settings ### */
         "settings"                      =>      "31n573llun63n",

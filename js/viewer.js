@@ -62,9 +62,7 @@ $( document ).ready(function() {
                 }
 
                 if(bLeastOne == false){
-                    getTranslation('leet', 'application-title');
-
-                    var html = "<tr><td class='client-name no-user'>No User</td><td>-</td></tr>";
+                    var html = "<tr><td class='client-name no-user'>" + getTranslation(getStorage('language'), 'found-no-user') + "</td><td class='no-user'>-</td></tr>";
                     $( "#viewer-body" ).append(html);  
                 }
             });
