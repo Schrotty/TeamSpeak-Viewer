@@ -11,6 +11,7 @@
         "close"                         =>      "Schließen",
         "save"                          =>      "Speichern",
         "saved"                         =>      "Gespeichert!",
+        "found-no-user"                 =>      "Kein User verbunden",
 
         /* ### Settings ### */
         "settings"                      =>      "Einstellungen",

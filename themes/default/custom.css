@@ -18,3 +18,7 @@ body {
 .marked {
     border: 1px solid #1b809e;
 }
+
+.no-user {
+    font-style: italic;
+}

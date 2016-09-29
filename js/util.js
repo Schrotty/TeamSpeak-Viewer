@@ -84,15 +84,20 @@ function setSoundpack(){
 }
 
 function getTranslation(language, index, type = null){
+    var sResult = null;
     $.ajax({
         url: 'lib/Translation.php',
         type: 'POST',
+        async: false,
         data:{
             lang: language,
             index: index,
             info: type
+        },
+        success: function(data) {
+            sResult = data;
         }
-    }).done(function( data ){
-        console.log( data );
     })
+
+    return sResult;
 }
