@@ -62,7 +62,14 @@ function setLanguage(){
 
     var lang = getParameterByName('lang');
     if(lang != language){
-        window.location.replace("/?lang=" + language);
+        var appFolder = getAppFolder();
+        if(appFolder != '/'){
+            var shortAppFolder = appFolder.substring(0, appFolder.length - 1);
+            window.location.replace( shortAppFolder + "?lang=" + language);
+            return;
+        }
+
+        window.location.replace("?lang=" + language);
     }
 }
 
@@ -81,6 +88,15 @@ function setSoundpack(){
     if(soundpack == null){
         setStorage('soundpack', 'default');
     }
+}
+
+function getAppFolder(){
+    var path = location.pathname.split('/');
+    if (path[path.length-1].indexOf('.php')>-1) {
+        path.length = path.length - 1;
+    }
+
+    return path.join('/');
 }
 
 function getTranslation(language, index, type = null){
