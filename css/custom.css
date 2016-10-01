@@ -191,3 +191,23 @@ body {
     background-color: #337ab7;
     color: white;
 }
+
+.table > tbody > tr > td {
+    border-top: 0px;
+}
+
+.table > tbody > tr > td.first-channel {
+    border-top: 1px solid #ddd;
+}
+
+.gallery-nav {
+    display: none;
+}
+
+.gallery-page {
+    display: none;
+}
+
+.gallery-page.active-page {
+    display: block;
+}

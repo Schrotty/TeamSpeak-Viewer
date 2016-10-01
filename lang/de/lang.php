@@ -22,6 +22,8 @@
         /* ### Gallery ### */
         "background-gallery"            =>      "Hintergrundgalerie",
         "background-gallery-btn"        =>      "Galerie öffnen",
+        "next-page"                     =>      "Nächste Seite",
+        "previous-page"                 =>      "Vorherige Seite",    
 
         /* ### Notifications ### */
         "notification-sounds"           =>      "Benachrichtigungssounds",
