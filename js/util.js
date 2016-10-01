@@ -79,7 +79,7 @@ function setBackground(){
         background = setStorage('background', 'default.jpeg');
     }
     
-    $( 'html' ).css( 'background-image', 'url(/img/backgrounds/' + background + ')' );
+    $( 'html' ).css( 'background-image', 'url(' + getAppFolder() + 'img/backgrounds/' + background + ')' );
 }
 
 function setSoundpack(){
