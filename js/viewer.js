@@ -1,9 +1,9 @@
 $( document ).ready(function() {
     var refreshRateInSeconds = 20;
-
+    
     loadViewerData()
     window.setInterval(function(){
-        loadViewerData();
+        //loadViewerData();
     }, refreshRateInSeconds * 1000);
 
     $( '#refresh-icon' ).click(function(){
@@ -40,9 +40,15 @@ $( document ).ready(function() {
                     }
                     
                     if(index == "user"){
+                        var preChannel = null;
                         value.forEach(function(element) {
-                            var arr = element.toString().split(';');     
-                            var html = "<tr><td class='client-name'>" + arr[0] + "</td><td>" + arr[1]  + "</td></tr>";
+                            var arr = element.toString().split(';');
+                            if(preChannel != arr[1]){
+                                var html = "<tr><td class='client-name first-channel'>" + arr[0] + "</td><td class='first-channel'>" + arr[1]  + "</td></tr>";
+                                preChannel = arr[1];
+                            }else{
+                                var html = "<tr><td class='client-name'>" + arr[0] + "</td><td>" + arr[1]  + "</td></tr>";
+                            }  
 
                             $( "#viewer-body" ).append(html);     
                         }, this);
@@ -62,7 +68,7 @@ $( document ).ready(function() {
                 }
 
                 if(bLeastOne == false){
-                    var html = "<tr><td class='client-name no-user'>" + getTranslation(getStorage('language'), 'found-no-user') + "</td><td class='no-user'>-</td></tr>";
+                    var html = "<tr><td class='client-name no-user first-channel'>" + getTranslation(getStorage('language'), 'found-no-user') + "</td><td class='no-user first-channel'>-</td></tr>";
                     $( "#viewer-body" ).append(html);  
                 }
             });
