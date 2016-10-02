@@ -18,15 +18,6 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-function playSound(playSound){
-    var soundpack = getStorage('soundpack');
-    if(soundpack == null){
-        soundpack = setStorage('soundpack', 'default');
-    }
-
-    PlaySound(playSound, store.get('soundpack'));
-}
-
 function getStorage(index){
     var value;
 
@@ -80,30 +71,6 @@ function setBackground(){
     }
     
     $( 'html' ).css( 'background-image', 'url(' + getAppFolder() + 'img/backgrounds/' + background + ')' );
-}
-
-function setSoundpack(){
-    var soundpack = getStorage('soundpack');
-    
-    if(soundpack == null){
-        setStorage('soundpack', 'default');
-    }
-}
-
-function setNotificationsState(){
-    var getNotifications = getStorage('get-notifications');
-
-    if(getNotifications == null){
-        setStorage('get-notifications', false);
-        return;
-    }
-
-    if(getNotifications == true){
-        $('#enable-notifications').bootstrapToggle('on');
-        return;
-    }
-
-    $('#enable-notifications').bootstrapToggle('off');
 }
 
 function getAppFolder(){
@@ -193,61 +160,17 @@ function getTranslation(language, index = null, type = null){
 }
 
 function findDiffrent(oldData, newData){
-        $.each(oldData, function(index, value){
-            var username = value.toString().split(';')[0];
-            if(newData.indexOf(username) == -1){
-                createPush("notification-user-left", "User Left:", username);
-            }
-        });
-
-        $.each(newData, function(index, value){
-            var username = value.toString().split(';')[0];
-            if(oldData.indexOf(username) == -1){
-                createPush("notification-user-join", "User Joined:", username);
-            }
-        });
-    }
-
-function createPush(action, text, username){
-    if(getStorage('get-notifications') == true || getStorage('get-notifications') == null){
-        text = getTranslation(getStorage('language'), action);
-        if(imageExist(username + '.jpg')){
-            Push.create(text, {
-                body: username,
-                icon: getAppFolder() + 'img/avatars/' + username + '.jpg',
-                timeout: 4000,
-                onClick: function () {
-                    this.close();
-                }
-            });
-        }else{
-            Push.create(text, {
-                body: username,
-                timeout: 4000,
-                onClick: function () {
-                    this.close();
-                }
-            });
+    $.each(oldData, function(index, value){
+        var username = value.toString().split(';')[0];
+        if(newData.indexOf(username) == -1){
+            $(document).trigger("user-left", { event: "user-left", username: username });
         }
+    });
 
-        if(action == "notification-user-left"){
-            PlaySound('disconnected', store.get('soundpack'));
-        }else{
-            PlaySound('connected', store.get('soundpack'));
+    $.each(newData, function(index, value){
+        var username = value.toString().split(';')[0];
+        if(oldData.indexOf(username) == -1){
+            $(document).trigger("user-join", { event: "user-join", username: username });
         }
-    }
-}
-
-function imageExist(image){
-    var sResult = false;
-    $.ajax({
-        url: getAppFolder() + 'img/avatars/' + image,
-        type: 'POST',
-        async: false,
-        success: function(data) {
-            sResult = data;
-        }
-    })
-
-    return sResult;
+    });
 }
