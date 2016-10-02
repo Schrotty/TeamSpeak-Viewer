@@ -212,15 +212,7 @@ body {
     display: block;
 }
 
-.notification-enable {
-    width: 100%;
-}
-
 .slow .toggle-group {
     transition: left 0.7s;
     -webkit-transition: left 0.7s;
-}
-
-#notification-state {
-    margin-top: 5px;
 }

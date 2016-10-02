@@ -16,13 +16,7 @@
         public static $sLanguage = "en";
 
         /* ### Module Settings ### */
-        public static $bLoadMods = true;
-        public static $aModules = array(
-            'notifications' => array(
-                'settings' => 'settings.php',
-                'modal' => 'modal.php'
-            )
-        );
+        public static $aModules = array('notifications');
 
         /* ### Module & Theme Settings ### */
         public static $sTheme = "default";

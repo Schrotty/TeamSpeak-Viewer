@@ -23,11 +23,12 @@
     <link href="css/pace.style.css" rel="stylesheet">
     <link href="css/bootstrap-toggle.css" rel="stylesheet">
 
-    <!-- Custom -->
+    <!-- Custom CSS -->
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/mobile.css" rel="stylesheet">
     
-    
+    <!-- CSS from modules -->
+    <?php $oModLoader->LoadFiles('style'); ?>
 
     <!-- Custom Theme -->
     <?php require_once('lib/Theme.php'); ?>
@@ -94,7 +95,7 @@
           </div>
 
           <!-- Notification Settings -->
-          <?php $oModLoader->LoadSettings() ?>
+          <?php $oModLoader->LoadFiles('settings'); ?>
         </div>
       </div>
 
@@ -124,7 +125,7 @@
       </div>
 
       <!-- Notification Settings -->
-      <?php $oModLoader->LoadModal() ?>
+      <?php $oModLoader->LoadFiles('modal'); ?>
 
       <div id="alert-panel" class="alert alert-danger alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -145,11 +146,19 @@
     <script src="js/howler.min.js"></script>
     <script src="js/bootstrap-toggle.min.js"></script>
 
-    <!-- Custom JavaScript -->
+    <!-- JS utils -->
     <script src="js/util.js"></script>
+
+    <!-- JS event handler from modules -->
+    <?php $oModLoader->LoadFiles('events'); ?>
+
+    <!-- Custom JavaScript -->
     <script src="js/sounder.js"></script>
     <script src="js/config.js"></script>
     <script src="js/viewer.js"></script>
     <script src="js/action.js"></script>
+
+    <!-- JS libaries from modules -->
+    <?php $oModLoader->LoadFiles('libary'); ?>
   </body>
 </html>

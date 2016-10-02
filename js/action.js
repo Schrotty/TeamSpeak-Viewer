@@ -1,30 +1,6 @@
 $( document ).ready(function() {
     setLanguage();
     setBackground();
-    setNotificationsState();
-    setSoundpack();
-
-    /* ### Volume Settings ### */
-    $( '#volume' ).val(function(){
-        var volume = getStorage('volume');
-        if(volume == null){
-            return setStorage('volume', 100);
-        }
-
-        return volume;
-    });
-
-    $( '#volume' ).change(function(){
-        store.set('volume', $( this ).val());
-    });
-
-    $( '#join-sound' ).click(function(){
-        playSound('connected');
-    });
-
-    $( '#left-sound' ).click(function(){
-        playSound('disconnected');
-    });
 
     $( '#settings-icon' ).click( function(){
         if($( '#settings-panel' ).css( 'display' ) == "none"){
@@ -72,16 +48,6 @@ $( document ).ready(function() {
         activateNavigation();
     })
 
-    $('#sound-gallery').on('show.bs.modal', function (e) {
-        var soundpack = getStorage('soundpack');
-        
-        if(soundpack == null){
-            return;
-        }
-
-        markThumbnail( $( '#' + getStorage('soundpack') + '-sp' ) );
-    })
-
     $('#next-page').click(function(){
         nextGalleryPage();
     });
@@ -89,8 +55,4 @@ $( document ).ready(function() {
     $('#previous-page').click(function(){
         previousGalleryPage();
     });
-
-    $('#enable-notifications').change(function() {
-      setStorage('get-notifications', $(this).prop('checked'));
-    })
 });
