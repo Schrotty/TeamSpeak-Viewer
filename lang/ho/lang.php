@@ -22,6 +22,8 @@
         /* ### Gallery ### */
         "background-gallery"            =>      "Hodor",
         "background-gallery-btn"        =>      "Hodor",
+        "next-page"                     =>      "Hodor",
+        "previous-page"                 =>      "Hodor",  
 
         /* ### Notifications ### */
         "notification-sounds"           =>      "Hodor",

@@ -68,6 +68,7 @@ $( document ).ready(function() {
         var obj = $( '#' + id.split('.')[0] );
 
         markThumbnail( obj );
+        activateNavigation();
     })
 
     $('#sound-gallery').on('show.bs.modal', function (e) {
@@ -79,4 +80,12 @@ $( document ).ready(function() {
 
         markThumbnail( $( '#' + getStorage('soundpack') + '-sp' ) );
     })
+
+    $('#next-page').click(function(){
+        nextGalleryPage();
+    });
+
+    $('#previous-page').click(function(){
+        previousGalleryPage();
+    });
 });

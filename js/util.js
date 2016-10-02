@@ -79,7 +79,7 @@ function setBackground(){
         background = setStorage('background', 'default.jpeg');
     }
     
-    $( 'html' ).css( 'background-image', 'url(/img/backgrounds/' + background + ')' );
+    $( 'html' ).css( 'background-image', 'url(' + getAppFolder() + 'img/backgrounds/' + background + ')' );
 }
 
 function setSoundpack(){
@@ -97,6 +97,52 @@ function getAppFolder(){
     }
 
     return path.join('/');
+}
+
+function nextGalleryPage(){
+    var iCurrentPage = $( '.active-page' ).attr( 'id' );
+
+    console.log(iCurrentPage);
+
+    $.each($( '.gallery-page' ), function() {
+        var id = $( this ).attr( 'id' );
+        if(parseInt(id) - parseInt(1) == parseInt(iCurrentPage)){
+            $( '#' + iCurrentPage ).removeClass('active-page');
+            $( '#' + id ).addClass('active-page');
+        }
+
+        if(parseInt(id) == $( '.gallery-page' ).length){
+            $( '#next-page' ).addClass('disabled');
+            $( '#previous-page' ).removeClass('disabled');
+        }
+    })
+}
+
+function previousGalleryPage(){
+    var iCurrentPage = $( '.active-page' ).attr( 'id' );
+
+    console.log(iCurrentPage);
+
+    $.each($( '.gallery-page' ), function() {
+        var id = $( this ).attr( 'id' );
+        if(parseInt(id) + parseInt(1) == parseInt(iCurrentPage)){
+            $( '#' + iCurrentPage ).removeClass('active-page');
+            $( '#' + id ).addClass('active-page');
+        }
+
+        if(parseInt(id) == $( '.gallery-page' ).length - parseInt(id)){
+            $( '#next-page' ).removeClass('disabled');
+            $( '#previous-page' ).addClass('disabled');
+        }
+    })
+}
+
+function activateNavigation(){
+    var pages = $( '.gallery-page' );
+    console.log(pages.length);
+    if(pages.length > 1){
+        $( '.gallery-nav' ).css( 'display', 'block' );
+    }
 }
 
 function getTranslation(language, index, type = null){

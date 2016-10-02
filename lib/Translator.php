@@ -29,12 +29,12 @@
 
         public function TranslateString($sTransString){
             if($this->CanTranslate($sTransString)){
-                if(Config::$iDebug < 1){
-                    echo $sTranslation = $this->aLang[$sTransString];
+                if(Config::$iDebug == 1 || Config::$iDebug == 3){                    
+                    echo $sTransString;
                     return;
                 }
                             
-                echo $sTransString;
+                echo $sTranslation = $this->aLang[$sTransString];
                 return;
             }   
 

@@ -106,7 +106,14 @@
               <h4 class="modal-title"><?php $oTranslation->TranslateString("background-gallery") ?></h4>
             </div>
             <div id="gallery-body" class="modal-body">
-              <?php require_once('lib/Gallery.php'); ?>   
+              <?php require_once('lib/Gallery.php'); ?>
+
+              <nav class="gallery-nav" aria-label="...">
+                <ul class="pager">
+                    <li id="previous-page" class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> <?php $oTranslation->TranslateString("previous-page") ?></a></li>
+                    <li id="next-page" class="next"><a href="#"><?php $oTranslation->TranslateString("next-page") ?> <span aria-hidden="true">&rarr;</span></a></li>
+                </ul>
+             </nav>   
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-dismiss="modal"><?php $oTranslation->TranslateString("close") ?></button>
