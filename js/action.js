@@ -1,6 +1,7 @@
 $( document ).ready(function() {
     setLanguage();
     setBackground();
+    setNotificationsState();
     setSoundpack();
 
     /* ### Volume Settings ### */
@@ -88,4 +89,8 @@ $( document ).ready(function() {
     $('#previous-page').click(function(){
         previousGalleryPage();
     });
+
+    $('#enable-notifications').change(function() {
+      setStorage('get-notifications', $(this).prop('checked'));
+    })
 });
