@@ -15,6 +15,15 @@
         /* ### Default Translation Settings ### */
         public static $sLanguage = "en";
 
+        /* ### Module Settings ### */
+        public static $bLoadMods = true;
+        public static $aModules = array(
+            'notifications' => array(
+                'settings' => 'settings.php',
+                'modal' => 'modal.php'
+            )
+        );
+
         /* ### Module & Theme Settings ### */
         public static $sTheme = "default";
     }

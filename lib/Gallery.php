@@ -9,16 +9,20 @@
         $iPageIndex = 1;
         foreach($aFiles as $aContent){
             if($iPageIndex == 1){
+                //print active page begin
                 echo '<div class="gallery-page active-page" id="' . $iPageIndex . '">';
             }else{
+                //print regular page begin
                 echo '<div class="gallery-page" id="' . $iPageIndex . '">';
             }
 
+            //print begin of new row
             echo '<div class="row">';
             foreach($aContent as $sKey => $aFiles){
                 foreach($aFiles as $sKey => $sFile){
                     $sImageTitle = pathinfo($sFile)['filename'];
 
+                    //print new image
                     echo '<div class="col-md-6 col-md-4">';
                         echo '<div id="' . $sImageTitle . '" class="thumbnail-wrapper" role="background" value="' . $sFile . '">';
                             echo '<div class="thumbnail">';

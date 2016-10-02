@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="./img/icon/favicon.png"/>
 
-    <!-- Translation -->
+    <!-- Translation & ModLoader-->
     <?php require_once('lib/Translator.php'); $oTranslation = new Translator(); ?>
+    <?php require_once('lib/ModLoader.php'); $oModLoader = new ModLoader(); ?>
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title><?php $oTranslation->TranslateString("title") ?></title>
@@ -18,10 +19,15 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
+    <!-- Third-Party -->
+    <link href="css/pace.style.css" rel="stylesheet">
+    <link href="css/bootstrap-toggle.css" rel="stylesheet">
+
+    <!-- Custom -->
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/mobile.css" rel="stylesheet">
-    <link href="css/pace.style.css" rel="stylesheet">
+    
+    
 
     <!-- Custom Theme -->
     <?php require_once('lib/Theme.php'); ?>
@@ -67,14 +73,14 @@
           <div class="settings-col">
             <div class="col-md-6"><?php $oTranslation->TranslateString("translation") ?></div>
             <div class="col-md-6">
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="language-drop-down" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <?php $oTranslation->TranslateString("translation") ?>
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="language-drop-down">
-                  <?php $oTranslation->ListTranslation() ?>
-                </ul>
+              <div class="input-group">
+                <input disabled id="language" value="" type="text" class="form-control" aria-label="...">
+                <div class="input-group-btn">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php $oTranslation->TranslateString("languages") ?> <span class="caret"></span></button>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <?php $oTranslation->ListTranslation() ?>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -87,13 +93,8 @@
             </div>
           </div>
 
-          <!-- Notification Sounds -->
-          <div class="settings-col">
-            <div class="col-md-6"><?php $oTranslation->TranslateString("notification-sounds") ?></div>
-            <div class="col-md-6">
-              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#sound-gallery"><?php $oTranslation->TranslateString("notification-sounds-btn") ?></button>
-            </div>
-          </div>
+          <!-- Notification Settings -->
+          <?php $oModLoader->LoadSettings() ?>
         </div>
       </div>
 
@@ -122,37 +123,8 @@
         </div>
       </div>
 
-      <!-- Notification Sounds -->
-      <div class="modal fade" tabindex="-1" role="dialog" id="sound-gallery">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><?php $oTranslation->TranslateString("notification-sounds") ?></h4>
-            </div>
-            <div class="modal-body">
-              <?php require_once('lib/Sounds.php'); ?>   
-
-              <!-- Test Area -->
-              <div class="row">
-              <div class="col-md-12">
-                  <div class="input-group">
-                    <span class="input-group-addon" id="sizing-addon2">%</span>
-                    <input id="volume" type="text" class="form-control" placeholder="Volume">
-                    <div class="input-group-btn">
-                      <button id="join-sound" class="btn btn-default" type="button"><?php $oTranslation->TranslateString("notification-join-test-btn") ?></button>
-                      <button id="left-sound" class="btn btn-default" type="button"><?php $oTranslation->TranslateString("notification-left-test-btn") ?></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal"><?php $oTranslation->TranslateString("close") ?></button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Notification Settings -->
+      <?php $oModLoader->LoadModal() ?>
 
       <div id="alert-panel" class="alert alert-danger alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -171,6 +143,7 @@
     <script src="js/push.min.js"></script>
     <script src="js/store.min.js"></script>
     <script src="js/howler.min.js"></script>
+    <script src="js/bootstrap-toggle.min.js"></script>
 
     <!-- Custom JavaScript -->
     <script src="js/util.js"></script>
