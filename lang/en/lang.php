@@ -18,7 +18,6 @@
 
         /* ### Translation ### */
         "translation"                   =>      "Translation",
-        "languages"                     =>      "Languages",
 
         /* ### Gallery ### */
         "background-gallery"            =>      "Background Gallery",
@@ -27,13 +26,9 @@
         "previous-page"                 =>      "Previous Page",  
 
         /* ### Notifications ### */
-        "notification-settings"         =>      "Notification Settings",
-        "notification-settings-btn"     =>      "Open Settings",
+        "notification-sounds"           =>      "Notification Sounds",
+        "notification-sounds-btn"       =>      "Open Sounds",
         "notification-join-test-btn"    =>      "Play 'Connected'",
-        "notification-left-test-btn"    =>      "Play 'Disconnected'",
-        "notification-user-join"        =>      "User left:",
-        "notification-user-left"        =>      "user joined:",
-        "notifications-enabled"         =>      "Notifications enabled",
-        "notifications-disabled"        =>      "Notifications disabled"  
+        "notification-left-test-btn"    =>      "Play 'Disconnected'"  
     );      
 ?>
