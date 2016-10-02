@@ -18,7 +18,6 @@
 
         /* ### Translation ### */
         "translation"                   =>      "Hodor",
-        "languages"                     =>      "Hodor",
 
         /* ### Gallery ### */
         "background-gallery"            =>      "Hodor",
@@ -30,10 +29,6 @@
         "notification-sounds"           =>      "Hodor",
         "notification-sounds-btn"       =>      "Hodor",
         "notification-join-test-btn"    =>      "Hodor",
-        "notification-left-test-btn"    =>      "Hodor",
-        "notification-user-join"        =>      "Hodor",
-        "notification-user-left"        =>      "Hodor",
-        "notifications-enabled"         =>      "Hodor",
-        "notifications-disabled"        =>      "Hodor"    
+        "notification-left-test-btn"    =>      "Hodor"  
     );    
 ?>

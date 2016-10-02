@@ -60,13 +60,13 @@ function setLanguage(){
         language = setStorage('language', 'en');
     }
 
-    $( '#language' ).val( getTranslation(language, null, 'title') );
     var lang = getParameterByName('lang');
     if(lang != language){
         var appFolder = getAppFolder();
         if(appFolder != '/'){
             var shortAppFolder = appFolder.substring(0, appFolder.length - 1);
             window.location.replace( shortAppFolder + "?lang=" + language);
+            return;
         }
 
         window.location.replace("?lang=" + language);
@@ -90,22 +90,6 @@ function setSoundpack(){
     }
 }
 
-function setNotificationsState(){
-    var getNotifications = getStorage('get-notifications');
-
-    if(getNotifications == null){
-        setStorage('get-notifications', false);
-        return;
-    }
-
-    if(getNotifications == true){
-        $('#enable-notifications').bootstrapToggle('on');
-        return;
-    }
-
-    $('#enable-notifications').bootstrapToggle('off');
-}
-
 function getAppFolder(){
     var path = location.pathname.split('/');
     if (path[path.length-1].indexOf('.php')>-1) {
@@ -118,22 +102,18 @@ function getAppFolder(){
 function nextGalleryPage(){
     var iCurrentPage = $( '.active-page' ).attr( 'id' );
 
+    console.log(iCurrentPage);
+
     $.each($( '.gallery-page' ), function() {
         var id = $( this ).attr( 'id' );
         if(parseInt(id) - parseInt(1) == parseInt(iCurrentPage)){
             $( '#' + iCurrentPage ).removeClass('active-page');
             $( '#' + id ).addClass('active-page');
+        }
 
-            var pageCount = $( '.gallery-page' ).length;
-            if(parseInt(id) == pageCount){
-                $( '#next-page' ).addClass('disabled');
-                $( '#previous-page' ).removeClass('disabled');
-                return;
-            }
-
-            if(parseInt(id) < pageCount){
-                $( '#previous-page' ).removeClass('disabled');
-            }
+        if(parseInt(id) == $( '.gallery-page' ).length){
+            $( '#next-page' ).addClass('disabled');
+            $( '#previous-page' ).removeClass('disabled');
         }
     })
 }
@@ -141,22 +121,18 @@ function nextGalleryPage(){
 function previousGalleryPage(){
     var iCurrentPage = $( '.active-page' ).attr( 'id' );
 
+    console.log(iCurrentPage);
+
     $.each($( '.gallery-page' ), function() {
         var id = $( this ).attr( 'id' );
         if(parseInt(id) + parseInt(1) == parseInt(iCurrentPage)){
             $( '#' + iCurrentPage ).removeClass('active-page');
             $( '#' + id ).addClass('active-page');
+        }
 
-            var pageCount = $( '.gallery-page' ).length;
-            if(parseInt(id) == pageCount - (pageCount - 1)){
-                $( '#next-page' ).removeClass('disabled');
-                $( '#previous-page' ).addClass('disabled');
-                return;
-            }
-
-            if(parseInt(id) < pageCount){
-                $( '#next-page' ).removeClass('disabled');
-            }
+        if(parseInt(id) == $( '.gallery-page' ).length - parseInt(id)){
+            $( '#next-page' ).removeClass('disabled');
+            $( '#previous-page' ).addClass('disabled');
         }
     })
 }
@@ -169,81 +145,17 @@ function activateNavigation(){
     }
 }
 
-function getTranslation(language, index = null, type = null){
+function getTranslation(language, index, type = null){
     var sResult = null;
     $.ajax({
         url: 'lib/Translation.php',
         type: 'POST',
         async: false,
-        dataType: "json",
         data:{
             lang: language,
             index: index,
             info: type
         },
-        success: function(data) {
-            sResult = data;
-        }
-    })
-    .fail(function() {
-        sResult = index;
-    })
-
-    return sResult;
-}
-
-function findDiffrent(oldData, newData){
-        $.each(oldData, function(index, value){
-            var username = value.toString().split(';')[0];
-            if(newData.indexOf(username) == -1){
-                createPush("notification-user-left", "User Left:", username);
-            }
-        });
-
-        $.each(newData, function(index, value){
-            var username = value.toString().split(';')[0];
-            if(oldData.indexOf(username) == -1){
-                createPush("notification-user-join", "User Joined:", username);
-            }
-        });
-    }
-
-function createPush(action, text, username){
-    if(getStorage('get-notifications') == true || getStorage('get-notifications') == null){
-        text = getTranslation(getStorage('language'), action);
-        if(imageExist(username + '.jpg')){
-            Push.create(text, {
-                body: username,
-                icon: getAppFolder() + 'img/avatars/' + username + '.jpg',
-                timeout: 4000,
-                onClick: function () {
-                    this.close();
-                }
-            });
-        }else{
-            Push.create(text, {
-                body: username,
-                timeout: 4000,
-                onClick: function () {
-                    this.close();
-                }
-            });
-        }
-
-        if(action == "notification-user-left"){
-            PlaySound('disconnected', store.get('soundpack'));
-        }else{
-            PlaySound('connected', store.get('soundpack'));
-        }
-    }
-}
-
-function imageExist(image){
-    var sResult = false;
-    $.ajax({
-        url: getAppFolder() + 'img/avatars/' + image,
-        type: 'POST',
-        async: false,
         success: function(data) {
             sResult = data;
         }

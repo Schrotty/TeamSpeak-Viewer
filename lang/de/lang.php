@@ -18,7 +18,6 @@
 
         /* ### Translation ### */
         "translation"                   =>      "Übersetzung",
-        "languages"                     =>      "Sprachen",
 
         /* ### Gallery ### */
         "background-gallery"            =>      "Hintergrundgalerie",
@@ -27,13 +26,9 @@
         "previous-page"                 =>      "Vorherige Seite",    
 
         /* ### Notifications ### */
-        "notification-settings"         =>      "Benachrichtigungseinstellungen",
-        "notification-settings-btn"     =>      "Einstellungen öffnen",
+        "notification-sounds"           =>      "Benachrichtigungssounds",
+        "notification-sounds-btn"       =>      "Sounds öffnen",
         "notification-join-test-btn"    =>      "'Connected' abspielen",
-        "notification-left-test-btn"    =>      "'Disconnected' abspielen",
-        "notification-user-join"        =>      "Benutzer ist beigetreten:",
-        "notification-user-left"        =>      "Benutzer ist gegangen:",
-        "notifications-enabled"         =>      "Benachrichtigungen aktiviert",
-        "notifications-disabled"        =>      "Benachrichtigungen deaktiviert"
+        "notification-left-test-btn"    =>      "'Disconnected' abspielen"  
     );    
 ?>

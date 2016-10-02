@@ -74,4 +74,36 @@ $( document ).ready(function() {
             });
         });
     }
+
+    function findDiffrent(oldData, newData){
+        $.each(oldData, function(index, value){
+            var username = value.toString().split(';')[0];
+            if(newData.indexOf(username) == -1){
+                createPush("left", "User Left:", username);
+            }
+        });
+
+        $.each(newData, function(index, value){
+            var username = value.toString().split(';')[0];
+            if(oldData.indexOf(username) == -1){
+                createPush("join", "User Joined:", username);
+            }
+        });
+    }
+
+    function createPush(action, text, username){
+        Push.create(text, {
+            body: username,
+            timeout: 4000,
+            onClick: function () {
+                this.close();
+            }
+        });
+
+        if(action == "left"){
+            PlaySound('disconnected', store.get('soundpack'));
+        }else{
+            PlaySound('connected', store.get('soundpack'));
+        }
+    }
 });
