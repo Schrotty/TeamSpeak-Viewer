@@ -19,9 +19,10 @@
         }
 
         if(!CanTranslate($aLang, $_POST['index'])){
-            echo $_POST['index'];
+            echo json_encode($_POST['index']);
+            return;
         }
         
-        echo $aLang[$_POST['index']];
+        echo json_encode($aLang[$_POST['index']]);
     }
 ?>

@@ -18,15 +18,6 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-function playSound(playSound){
-    var soundpack = getStorage('soundpack');
-    if(soundpack == null){
-        soundpack = setStorage('soundpack', 'default');
-    }
-
-    PlaySound(playSound, store.get('soundpack'));
-}
-
 function getStorage(index){
     var value;
 
@@ -60,13 +51,13 @@ function setLanguage(){
         language = setStorage('language', 'en');
     }
 
+    $( '#language' ).val( getTranslation(language, null, 'title') );
     var lang = getParameterByName('lang');
     if(lang != language){
         var appFolder = getAppFolder();
         if(appFolder != '/'){
             var shortAppFolder = appFolder.substring(0, appFolder.length - 1);
             window.location.replace( shortAppFolder + "?lang=" + language);
-            return;
         }
 
         window.location.replace("?lang=" + language);
@@ -82,14 +73,6 @@ function setBackground(){
     $( 'html' ).css( 'background-image', 'url(' + getAppFolder() + 'img/backgrounds/' + background + ')' );
 }
 
-function setSoundpack(){
-    var soundpack = getStorage('soundpack');
-    
-    if(soundpack == null){
-        setStorage('soundpack', 'default');
-    }
-}
-
 function getAppFolder(){
     var path = location.pathname.split('/');
     if (path[path.length-1].indexOf('.php')>-1) {
@@ -102,18 +85,22 @@ function getAppFolder(){
 function nextGalleryPage(){
     var iCurrentPage = $( '.active-page' ).attr( 'id' );
 
-    console.log(iCurrentPage);
-
     $.each($( '.gallery-page' ), function() {
         var id = $( this ).attr( 'id' );
         if(parseInt(id) - parseInt(1) == parseInt(iCurrentPage)){
             $( '#' + iCurrentPage ).removeClass('active-page');
             $( '#' + id ).addClass('active-page');
-        }
 
-        if(parseInt(id) == $( '.gallery-page' ).length){
-            $( '#next-page' ).addClass('disabled');
-            $( '#previous-page' ).removeClass('disabled');
+            var pageCount = $( '.gallery-page' ).length;
+            if(parseInt(id) == pageCount){
+                $( '#next-page' ).addClass('disabled');
+                $( '#previous-page' ).removeClass('disabled');
+                return;
+            }
+
+            if(parseInt(id) < pageCount){
+                $( '#previous-page' ).removeClass('disabled');
+            }
         }
     })
 }
@@ -121,18 +108,22 @@ function nextGalleryPage(){
 function previousGalleryPage(){
     var iCurrentPage = $( '.active-page' ).attr( 'id' );
 
-    console.log(iCurrentPage);
-
     $.each($( '.gallery-page' ), function() {
         var id = $( this ).attr( 'id' );
         if(parseInt(id) + parseInt(1) == parseInt(iCurrentPage)){
             $( '#' + iCurrentPage ).removeClass('active-page');
             $( '#' + id ).addClass('active-page');
-        }
 
-        if(parseInt(id) == $( '.gallery-page' ).length - parseInt(id)){
-            $( '#next-page' ).removeClass('disabled');
-            $( '#previous-page' ).addClass('disabled');
+            var pageCount = $( '.gallery-page' ).length;
+            if(parseInt(id) == pageCount - (pageCount - 1)){
+                $( '#next-page' ).removeClass('disabled');
+                $( '#previous-page' ).addClass('disabled');
+                return;
+            }
+
+            if(parseInt(id) < pageCount){
+                $( '#next-page' ).removeClass('disabled');
+            }
         }
     })
 }
@@ -145,12 +136,13 @@ function activateNavigation(){
     }
 }
 
-function getTranslation(language, index, type = null){
+function getTranslation(language, index = null, type = null){
     var sResult = null;
     $.ajax({
         url: 'lib/Translation.php',
         type: 'POST',
         async: false,
+        dataType: "json",
         data:{
             lang: language,
             index: index,
@@ -160,6 +152,25 @@ function getTranslation(language, index, type = null){
             sResult = data;
         }
     })
+    .fail(function() {
+        sResult = index;
+    })
 
     return sResult;
+}
+
+function findDiffrent(oldData, newData){
+    $.each(oldData, function(index, value){
+        var username = value.toString().split(';')[0];
+        if(newData.indexOf(username) == -1){
+            $(document).trigger("user-left", { event: "user-left", username: username });
+        }
+    });
+
+    $.each(newData, function(index, value){
+        var username = value.toString().split(';')[0];
+        if(oldData.indexOf(username) == -1){
+            $(document).trigger("user-join", { event: "user-join", username: username });
+        }
+    });
 }

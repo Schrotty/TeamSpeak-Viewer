@@ -15,6 +15,9 @@
         /* ### Default Translation Settings ### */
         public static $sLanguage = "en";
 
+        /* ### Module Settings ### */
+        public static $aModules = array('notifications');
+
         /* ### Module & Theme Settings ### */
         public static $sTheme = "default";
     }

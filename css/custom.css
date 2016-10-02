@@ -211,3 +211,8 @@ body {
 .gallery-page.active-page {
     display: block;
 }
+
+.slow .toggle-group {
+    transition: left 0.7s;
+    -webkit-transition: left 0.7s;
+}
