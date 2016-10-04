@@ -3,7 +3,7 @@ $( document ).ready(function() {
     
     loadViewerData()
     window.setInterval(function(){
-        //loadViewerData();
+        loadViewerData();
     }, refreshRateInSeconds * 1000);
 
     $( '#refresh-icon' ).click(function(){
