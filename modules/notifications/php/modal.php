@@ -1,3 +1,4 @@
+<?php require_once( __DIR__ . '/core/Sounds.class.php'); $oSounds = new Sounds(); ?>
 <div class="modal fade" tabindex="-1" role="dialog" id="sound-gallery">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -6,7 +7,7 @@
                     <h4 class="modal-title"><?php $this->oTranslator->TranslateString("notification-settings") ?></h4>
                 </div>
                 <div class="modal-body">
-                    <?php require_once('lib/Sounds.php'); ?>   
+                    <?php $oSounds->CreateSounds(); ?>   
 
                     <!-- Test Area -->
                     <div class="row">

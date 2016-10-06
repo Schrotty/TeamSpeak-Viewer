@@ -15,7 +15,7 @@ $( document ).ready(function() {
             $.getJSON({
                 data: "json",
                 method: "POST",
-                url: "lib/Viewer.php"
+                url: "lib/GetClientJSON.php"
             }).done(function( data ){
                 $( "#viewer-body" ).find("tr").remove();
 

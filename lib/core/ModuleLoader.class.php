@@ -1,7 +1,6 @@
 <?php
-
     require_once('config/Config.php');
-    require_once('lib/Translator.php');
+    require_once('lib/core/Translator.class.php');
 
     class ModLoader {
         public $oTranslator;
@@ -15,6 +14,10 @@
             $this->sWorkingDir =  getcwd() . '/';
             $this->oTranslator = new Translator();
             $this->aModArray = Config::$aModules;
+        }
+
+        public function LoadTheme(){
+            echo '<link href="themes/' . Config::$sTheme . '/custom.css" rel="stylesheet">';
         }
 
         public function LoadFiles($sFileType){

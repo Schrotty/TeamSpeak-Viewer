@@ -139,7 +139,7 @@ function activateNavigation(){
 function getTranslation(language, index = null, type = null){
     var sResult = null;
     $.ajax({
-        url: 'lib/Translation.php',
+        url: 'lib/GetTranslation.php',
         type: 'POST',
         async: false,
         dataType: "json",

@@ -7,8 +7,9 @@
     <link rel="shortcut icon" type="image/png" href="./img/icon/favicon.png"/>
 
     <!-- Translation & ModLoader-->
-    <?php require_once('lib/Translator.php'); $oTranslation = new Translator(); ?>
-    <?php require_once('lib/ModLoader.php'); $oModLoader = new ModLoader(); ?>
+    <?php require_once('lib/core/Translator.class.php'); $oTranslation = new Translator(); ?>
+    <?php require_once('lib/core/ModuleLoader.class.php'); $oModLoader = new ModLoader(); ?>
+    <?php require_once('lib/core/Gallery.class.php'); $oGallery = new Gallery(); ?>
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title><?php $oTranslation->TranslateString("title") ?></title>
@@ -31,7 +32,7 @@
     <?php $oModLoader->LoadFiles('style'); ?>
 
     <!-- Custom Theme -->
-    <?php require_once('lib/Theme.php'); ?>
+    <?php $oModLoader->LoadTheme(); ?>
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -108,7 +109,7 @@
               <h4 class="modal-title"><?php $oTranslation->TranslateString("background-gallery") ?></h4>
             </div>
             <div id="gallery-body" class="modal-body">
-              <?php require_once('lib/Gallery.php'); ?>
+              <?php $oGallery->CreateGallery(); ?>
 
               <nav class="gallery-nav" aria-label="...">
                 <ul class="pager">
