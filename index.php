@@ -9,7 +9,7 @@
     <!-- Translation & ModLoader-->
     <?php require_once('lib/core/Translator.class.php'); $oTranslation = new Translator(); ?>
     <?php require_once('lib/core/ModuleLoader.class.php'); $oModLoader = new ModLoader(); ?>
-    <?php require_once('lib/core/Gallery.class.php'); $oGallery = new Gallery(); ?>
+    <?php //require_once('lib/core/Gallery.class.php'); $oGallery = new Gallery(); ?>
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title><?php $oTranslation->TranslateString("title") ?></title>
@@ -87,49 +87,15 @@
             </div>
           </div>
 
-          <!-- Backgrounds -->
-          <div class="settings-col">
-            <div class="col-md-6"><?php $oTranslation->TranslateString("background-gallery") ?></div>
-            <div class="col-md-6">
-              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#background-gallery"><?php $oTranslation->TranslateString("background-gallery-btn") ?></button>
-            </div>
-          </div>
-
           <!-- Notification Settings -->
           <?php $oModLoader->LoadFiles('settings'); ?>
-        </div>
-      </div>
-
-      <!-- Background Gallery -->
-      <div class="modal fade" tabindex="-1" role="dialog" id="background-gallery">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><?php $oTranslation->TranslateString("background-gallery") ?></h4>
-            </div>
-            <div id="gallery-body" class="modal-body">
-              <?php $oGallery->CreateGallery(); ?>
-
-              <nav class="gallery-nav" aria-label="...">
-                <ul class="pager">
-                    <li id="previous-page" class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> <?php $oTranslation->TranslateString("previous-page") ?></a></li>
-                    <li id="next-page" class="next"><a href="#"><?php $oTranslation->TranslateString("next-page") ?> <span aria-hidden="true">&rarr;</span></a></li>
-                </ul>
-             </nav>   
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal"><?php $oTranslation->TranslateString("close") ?></button>
-            </div>
-          </div>
         </div>
       </div>
 
       <!-- Notification Settings -->
       <?php $oModLoader->LoadFiles('modal'); ?>
 
-      <div id="alert-panel" class="alert alert-danger alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div id="alert-panel" class="alert alert-danger" role="alert">
         <p id="alert-para"></p>
       </div>
     </div>

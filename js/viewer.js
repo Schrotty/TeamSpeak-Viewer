@@ -59,7 +59,10 @@ $( document ).ready(function() {
                     if(index == "error" || index == 0){
                         $( "#alert-para" ).text(value[0].toString().capitalizeFirstLetter());
                         $( "#alert-panel" ).fadeIn('slow');
+                        return;
                     }
+
+                    $( "#alert-panel" ).fadeOut('slow');
                 }); 
 
                 if(sFoundError != "error"){

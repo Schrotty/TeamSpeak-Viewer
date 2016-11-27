@@ -1,4 +1,6 @@
 $( document ).ready(function() {
+    store.set('is-mobile-device', isMobileDevice());
+
     setLanguage();
     setBackground();
 

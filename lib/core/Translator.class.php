@@ -28,7 +28,7 @@
         }
 
         public function TranslateString($sTransString){
-            if($this->CanTranslate($sTransString)){
+            if($this->CanTranslate($this->aLang, $sTransString)){
                 if(Config::$iDebug == 1 || Config::$iDebug == 3){                    
                     echo $sTransString;
                     return;
@@ -51,8 +51,8 @@
             }
         }
 
-        public function CanTranslate($sTransString){
-            foreach($this->aLang as $sKey => $sLang){
+        public function CanTranslate($aLangArr, $sTransString){
+            foreach($aLangArr as $sKey => $sLang){
                 if($sKey == $sTransString){
                     return true;
                 }

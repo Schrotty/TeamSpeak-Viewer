@@ -65,6 +65,10 @@ function setLanguage(){
 }
 
 function setBackground(){
+    if(getStorage('is-mobile-device')){
+        return;
+    }
+
     var background = getStorage('background');
     if(background == null){
         background = setStorage('background', 'default.jpeg');
@@ -157,6 +161,21 @@ function getTranslation(language, index = null, type = null){
     })
 
     return sResult;
+}
+
+function isMobileDevice(){
+    var bResult = null;
+    $.ajax({
+        url: 'lib/IsMobileDevice.php',
+        type: 'POST',
+        dataType: 'json',
+        async: false,
+        success: function(data){
+            bResult = data;
+        }
+    })
+
+    return bResult;
 }
 
 function findDiffrent(oldData, newData){
