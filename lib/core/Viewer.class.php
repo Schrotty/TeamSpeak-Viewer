@@ -3,23 +3,41 @@
     require_once('config/Config.php');
     
     class Viewer {
+        /**
+         * @var TeamSpeak3_Adapter_Abstract
+         */
         private $oConnection;
+
+        /**
+         * @var stdClass
+         */
         private $aResults;
+
+        /**
+         * @var
+         */
         private $aUsers;
 
+        /**
+         * Viewer constructor.
+         */
         public function __construct(){
             $this->aResults = new stdClass();
 
             try {
-                TeamSpeak3::init();
                 if(Config::$iDebug != 2 && Config::$iDebug != 3){
+                    TeamSpeak3::init();
                     $this->oConnection = TeamSpeak3::factory('serverquery://' . Config::$sQueryName . ':' . Config::$sQueryPasswd . '@' . Config::$sServerIP . ':' . Config::$sQueryPort . '/?server_port=' . Config::$sServerPort . '');
                 }
-            }catch(Exception $oExcec){
+            }catch(TeamSpeak3_Exception $oExcec){
                 $this->aResults->error[] = (array)$oExcec->getMessage();
             }
         }
 
+        /**
+         * @param $aArray
+         * @return array
+         */
         private function GroupArray($aArray){
             $aSorted = array();
 
@@ -43,6 +61,11 @@
             return $aSorted;
         }
 
+        /**
+         * @param $sUsername
+         * @param $sChannel
+         * @return mixed
+         */
         private function GetUser($sUsername, $sChannel){
             $oUser['client_nickname'] = $sUsername;
             $oUser['cid'] = $sChannel;
@@ -50,10 +73,19 @@
             return $oUser;
         }
 
+        /**
+         * @param $a
+         * @param $b
+         * @return int
+         */
         private static function CompareValues($a, $b){
             return strcmp($a['cid'], $b['cid']);
         }
 
+        /**
+         * @param $iID
+         * @return mixed
+         */
         private function getChannel($iID){
             $aChannels = array(
                 '0'     =>      'Neues aus der Anstalt',
@@ -65,6 +97,9 @@
             return $aChannels[$iID];
         }
 
+        /**
+         * @return string
+         */
         public function GetClientList(){
             try {
                 if(Config::$iDebug == 2 || Config::$iDebug == 3){
@@ -77,6 +112,10 @@
                         '5' =>  $this->getUser('RUBY_Rodolf', 2)
                     );
                 }else{
+                    if($this->oConnection == NULL){
+                        return $this->ReturnResults();
+                    }
+                    
                     $this->aUsers = $this->oConnection->clientList();
                 }
 
@@ -96,6 +135,13 @@
                 $this->aResults->error[] = (array)$excep->getMessage();
             }
 
+            return $this->ReturnResults();
+        }
+
+        /**
+         * @return string
+         */
+        private function ReturnResults(){
             return json_encode($this->aResults);
         }
     }

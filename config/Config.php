@@ -16,10 +16,8 @@
         public static $sLanguage = "en";
 
         /* ### Module Settings ### */
-        public static $aModules = array('notifications', 'fakeViewer');
-
-        /* ### Viewer Settings ### */
-        public static $oViewer;
+        public static $aModules = array('notifications', 'gallery');
+        public static $aMobileModules = array();
 
         /* ### Module & Theme Settings ### */
         public static $sTheme = "default";

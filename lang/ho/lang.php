@@ -27,8 +27,8 @@
         "previous-page"                 =>      "Hodor",  
 
         /* ### Notifications ### */
-        "notification-sounds"           =>      "Hodor",
-        "notification-sounds-btn"       =>      "Hodor",
+        "notification-settings"           =>      "Hodor",
+        "notification-settings-btn"       =>      "Hodor",
         "notification-join-test-btn"    =>      "Hodor",
         "notification-left-test-btn"    =>      "Hodor",
         "notification-user-join"        =>      "Hodor",

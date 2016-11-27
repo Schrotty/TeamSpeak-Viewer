@@ -18,8 +18,8 @@
                 $avatar = $ts3_Client->avatarDownload();
                 //echo $ts3_Client->avatarGetName() . "<br />";
                 // send header and display image
-                header("Content-Type: " . TeamSpeak3_Helper_Convert::imageMimeType($avatar));
-                echo $avatar; 
+                //header("Content-Type: " . TeamSpeak3_Helper_Convert::imageMimeType($avatar));
+                //echo $avatar; 
             } catch (TeamSpeak3_Exception $e) {
                 // print the error message returned by the server
                 echo "Error " . $e->getCode() . ": " . $e->getMessage();
@@ -28,5 +28,5 @@
     }
 
     $obj = new AvatarDownloader();
-    $obj->DownloadAvatar();
+    //$obj->DownloadAvatar();
 ?>
