@@ -20,6 +20,10 @@
         "translation"                   =>      "Hodor",
         "languages"                     =>      "Hodor",
 
+        /* ### Themes ### */
+        "theme"                         =>      "Hodor",
+        "themes"                        =>      "Hodor",
+
         /* ### Gallery ### */
         "background-gallery"            =>      "Hodor",
         "background-gallery-btn"        =>      "Hodor",
@@ -27,8 +31,8 @@
         "previous-page"                 =>      "Hodor",  
 
         /* ### Notifications ### */
-        "notification-settings"           =>      "Hodor",
-        "notification-settings-btn"       =>      "Hodor",
+        "notification-settings"         =>      "Hodor",
+        "notification-settings-btn"     =>      "Hodor",
         "notification-join-test-btn"    =>      "Hodor",
         "notification-left-test-btn"    =>      "Hodor",
         "notification-user-join"        =>      "Hodor",

@@ -18,7 +18,7 @@
         }
 
         public function LoadTheme(){
-            echo '<link href="themes/' . Config::$sTheme . '/custom.css" rel="stylesheet">';
+            echo '<link id="theme" href="themes/' . Config::$sTheme . '/custom.css" rel="stylesheet">';
         }
 
         public function LoadFiles($sFileType){

@@ -215,3 +215,7 @@ body {
     transition: left 0.7s;
     -webkit-transition: left 0.7s;
 }
+
+.input-group-btn {
+    min-width: 125px;
+}

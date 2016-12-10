@@ -71,7 +71,10 @@ $( document ).ready(function() {
                 }
 
                 if(bLeastOne == false){
-                    var html = "<tr><td class='client-name no-user first-channel'>" + getTranslation(getStorage('language'), 'found-no-user') + "</td><td class='no-user first-channel'>-</td></tr>";
+                    var html = "<tr><td class='client-name no-user first-channel'>" + getTranslation({
+                            language: getStorage('language'),
+                            index: 'found-no-user'
+                        }) + "</td><td class='no-user first-channel'>-</td></tr>";
                     $( "#viewer-body" ).append(html);  
                 }
             });

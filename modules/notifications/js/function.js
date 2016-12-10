@@ -5,7 +5,7 @@ function createPush(action, username){
             return;
         }
 
-        var text = getTranslation(getStorage('language'), 'notification-' + action);
+        var text = getTranslation({language: getStorage('language'), index: 'notification-' + action});
         if(imageExist(username + '.jpg')){
             Push.create(text, {
                 body: username,

@@ -3,6 +3,7 @@ $( document ).ready(function() {
 
     setLanguage();
     setBackground();
+    setTheme(getStorage('theme'));
 
     $( '#settings-icon' ).click( function(){
         if($( '#settings-panel' ).css( 'display' ) == "none"){
@@ -17,9 +18,14 @@ $( document ).ready(function() {
         $( '#settings-panel' ).fadeOut('slow');
     });
 
-    $( '.option' ).click(function(){
+    $( '.lang-option' ).click(function(){
         store.set('language', $( this ).attr( 'value' ));
         setLanguage();
+    });
+
+    $( '.theme-option' ).click(function(){
+        store.set('theme', $( this ).attr( 'value' ));
+        setTheme(getStorage('theme'));
     });
 
     $( '.thumbnail-wrapper' ).click(function(){
@@ -44,7 +50,7 @@ $( document ).ready(function() {
             return;
         }
 
-        var obj = $( '#' + id.split('.')[0] );
+        var obj = $( '#' + (id.split('.')[0]).split('/')[1] );
 
         markThumbnail( obj );
         activateNavigation();

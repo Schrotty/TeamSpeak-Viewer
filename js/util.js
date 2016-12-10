@@ -51,7 +51,7 @@ function setLanguage(){
         language = setStorage('language', 'en');
     }
 
-    $( '#language' ).val( getTranslation(language, null, 'title') );
+    $( '#language' ).val( getTranslation({language: language, index: null, type: 'title'}) );
     var lang = getParameterByName('lang');
     if(lang != language){
         var appFolder = getAppFolder();
@@ -71,10 +71,26 @@ function setBackground(){
 
     var background = getStorage('background');
     if(background == null){
-        background = setStorage('background', 'default.jpeg');
+        background = setStorage('background', 'z_default/default.jpeg');
     }
     
     $( 'html' ).css( 'background-image', 'url(' + getAppFolder() + 'img/backgrounds/' + background + ')' );
+}
+
+function setTheme(cssFile){
+    if(cssFile == null)
+        setStorage('theme', 'default');
+
+    var oldlink = document.getElementById("theme");
+
+    var newlink = document.createElement("link");
+    newlink.setAttribute("rel", "stylesheet");
+    newlink.setAttribute("id", "theme");
+    newlink.setAttribute("type", "text/css");
+    newlink.setAttribute("href", "themes/" + getStorage('theme') + "/custom.css");
+
+    document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+    document.getElementById('select-theme').value = getStorage("theme").charAt(0).toUpperCase() + getStorage("theme").slice(1);
 }
 
 function getAppFolder(){
@@ -140,8 +156,12 @@ function activateNavigation(){
     }
 }
 
-function getTranslation(language, index = null, type = null){
+function getTranslation(parameters){
+    var language = parameters.language;
+    var index = parameters.index;
+    var type = parameters.type;
     var sResult = null;
+
     $.ajax({
         url: 'lib/GetTranslation.php',
         type: 'POST',

@@ -5,7 +5,7 @@
         "application-title"             =>      "TeamSpeak Viewer",
 
         /* ### Generic ### */
-        "title"                         =>      "[DEV] TSV",
+        "title"                         =>      "Neues aus der Anstalt",
         "username"                      =>      "Username",
         "channel"                       =>      "Channel",
         "close"                         =>      "Close",
@@ -19,6 +19,10 @@
         /* ### Translation ### */
         "translation"                   =>      "Translation",
         "languages"                     =>      "Languages",
+
+        /* ### Themes ### */
+        "theme"                         =>      "Theme",
+        "themes"                        =>      "Themes",
 
         /* ### Gallery ### */
         "background-gallery"            =>      "Background Gallery",

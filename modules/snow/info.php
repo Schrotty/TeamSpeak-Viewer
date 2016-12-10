@@ -1,7 +1,7 @@
 <?php
     $aModule = array(
-        'id'                =>      'gallery',
-        'title'             =>      'Gallery',
+        'id'                =>      'snow',
+        'title'             =>      'snow',
         'description'       =>      array(
             'de'    =>  '',
             'en'    =>  '',
@@ -13,12 +13,8 @@
         'url'               =>      'https://github.com/Schrotty',
         'email'             =>      'rubenmaurer@live.de',
         'files' => array(
-            'php'           =>      array(
-                'settings'      =>      'settings.php',
-                'modal'         =>      'modal.php'
-            ),
             'css'           =>      array(
-                'style'         =>      'ribbon.css'
+                'style'         =>      'snow.css'
             )
         ),
     );

@@ -46,7 +46,7 @@
             foreach($aLangFolders as $sKey => $sLangFolder){
                 if($sLangFolder != "." && $sLangFolder != ".." && $sLangFolder != ".htaccess"){
                     include('lang/' . $sLangFolder . '/lang.php'); //hate it...
-                    echo '<li><a class="option" value=' . $sLangFolder . '>' . $sLangTitle . '</a></li>';
+                    echo '<li><a class="option lang-option" value=' . $sLangFolder . '>' . $sLangTitle . '</a></li>';
                 }
             }
         }
