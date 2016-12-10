@@ -15,7 +15,7 @@ $( document ).ready(function() {
             $.getJSON({
                 data: "json",
                 method: "POST",
-                url: "lib/Viewer.php"
+                url: "lib/GetClientJSON.php"
             }).done(function( data ){
                 $( "#viewer-body" ).find("tr").remove();
 
@@ -59,7 +59,10 @@ $( document ).ready(function() {
                     if(index == "error" || index == 0){
                         $( "#alert-para" ).text(value[0].toString().capitalizeFirstLetter());
                         $( "#alert-panel" ).fadeIn('slow');
+                        return;
                     }
+
+                    $( "#alert-panel" ).fadeOut('slow');
                 }); 
 
                 if(sFoundError != "error"){
@@ -68,7 +71,10 @@ $( document ).ready(function() {
                 }
 
                 if(bLeastOne == false){
-                    var html = "<tr><td class='client-name no-user first-channel'>" + getTranslation(getStorage('language'), 'found-no-user') + "</td><td class='no-user first-channel'>-</td></tr>";
+                    var html = "<tr><td class='client-name no-user first-channel'>" + getTranslation({
+                            language: getStorage('language'),
+                            index: 'found-no-user'
+                        }) + "</td><td class='no-user first-channel'>-</td></tr>";
                     $( "#viewer-body" ).append(html);  
                 }
             });
