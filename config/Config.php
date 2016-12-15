@@ -1,7 +1,7 @@
 <?php
     class Config {
         /* ### Application Settings ### */
-        public static $iDebug = 2; //0 = Production; 1 = Disable translation; 2 = Enable fake users; 3 = Disable translation and enable fake users
+        public static $iDebug = 0; //0 = Production; 1 = Disable translation; 2 = Enable fake users; 3 = Disable translation and enable fake users
 
         /* ### Query Settings ### */
         public static $sQueryName = "dev_view";
