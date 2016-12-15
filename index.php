@@ -140,13 +140,6 @@
     <script src="js/howler.min.js"></script>
     <script src="js/bootstrap-toggle.min.js"></script>
 
-    <!-- Third-Party -->
-    <script src="js/pace.min.js"></script>
-    <script src="js/push.min.js"></script>
-    <script src="js/store.min.js"></script>
-    <script src="js/howler.min.js"></script>
-    <script src="js/bootstrap-toggle.min.js"></script>
-
     <!-- JS utils -->
     <script src="js/util.js"></script>
 
