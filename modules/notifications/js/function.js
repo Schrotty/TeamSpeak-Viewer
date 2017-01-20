@@ -1,6 +1,11 @@
 function createPush(action, username){
     if(getStorage('get-notifications') == true || getStorage('get-notifications') == null){
-        var text = getTranslation(getStorage('language'), 'notification-' + action);
+        if(action == "user-left" && getStorage('launch') == true){
+            store.set('launch', false);
+            return;
+        }
+
+        var text = getTranslation({language: getStorage('language'), index: 'notification-' + action});
         if(imageExist(username + '.jpg')){
             Push.create(text, {
                 body: username,

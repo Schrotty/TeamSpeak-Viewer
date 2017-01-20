@@ -1,5 +1,6 @@
 //on page laod event handler
 $( document ).ready(function() {
+    store.set('launch', true);
     setNotificationsState();
     setSoundpack();
 });

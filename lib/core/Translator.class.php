@@ -28,7 +28,7 @@
         }
 
         public function TranslateString($sTransString){
-            if($this->CanTranslate($sTransString)){
+            if($this->CanTranslate($this->aLang, $sTransString)){
                 if(Config::$iDebug == 1 || Config::$iDebug == 3){                    
                     echo $sTransString;
                     return;
@@ -46,13 +46,13 @@
             foreach($aLangFolders as $sKey => $sLangFolder){
                 if($sLangFolder != "." && $sLangFolder != ".." && $sLangFolder != ".htaccess"){
                     include('lang/' . $sLangFolder . '/lang.php'); //hate it...
-                    echo '<li><a class="option" value=' . $sLangFolder . '>' . $sLangTitle . '</a></li>';
+                    echo '<li><a class="option lang-option" value=' . $sLangFolder . '>' . $sLangTitle . '</a></li>';
                 }
             }
         }
 
-        public function CanTranslate($sTransString){
-            foreach($this->aLang as $sKey => $sLang){
+        public function CanTranslate($aLangArr, $sTransString){
+            foreach($aLangArr as $sKey => $sLang){
                 if($sKey == $sTransString){
                     return true;
                 }
